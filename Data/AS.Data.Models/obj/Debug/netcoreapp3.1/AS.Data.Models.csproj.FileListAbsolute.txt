@@ -1,0 +1,9 @@
+C:\Users\User\Documents\AuroraProject\Aurora-Shop\Data\AS.Data.Models\bin\Debug\netcoreapp3.1\AS.Data.Models.deps.json
+C:\Users\User\Documents\AuroraProject\Aurora-Shop\Data\AS.Data.Models\bin\Debug\netcoreapp3.1\AS.Data.Models.dll
+C:\Users\User\Documents\AuroraProject\Aurora-Shop\Data\AS.Data.Models\bin\Debug\netcoreapp3.1\AS.Data.Models.pdb
+C:\Users\User\Documents\AuroraProject\Aurora-Shop\Data\AS.Data.Models\obj\Debug\netcoreapp3.1\AS.Data.Models.csprojAssemblyReference.cache
+C:\Users\User\Documents\AuroraProject\Aurora-Shop\Data\AS.Data.Models\obj\Debug\netcoreapp3.1\AS.Data.Models.AssemblyInfoInputs.cache
+C:\Users\User\Documents\AuroraProject\Aurora-Shop\Data\AS.Data.Models\obj\Debug\netcoreapp3.1\AS.Data.Models.AssemblyInfo.cs
+C:\Users\User\Documents\AuroraProject\Aurora-Shop\Data\AS.Data.Models\obj\Debug\netcoreapp3.1\AS.Data.Models.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\AuroraProject\Aurora-Shop\Data\AS.Data.Models\obj\Debug\netcoreapp3.1\AS.Data.Models.dll
+C:\Users\User\Documents\AuroraProject\Aurora-Shop\Data\AS.Data.Models\obj\Debug\netcoreapp3.1\AS.Data.Models.pdb
