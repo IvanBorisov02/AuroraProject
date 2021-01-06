@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "86bMFx239PWE7452cEbW6HGVRFtbsidEStJVN+e7Xm7o7o5eV9uRhsmsjygmdqVOe7He5OIsJ2KYav6Ilm6I+g==",
+  "dgSpecHash": "uR4lpLv83I6gYZdr3HkTgD2cR8KOjA219UHhtHkDzocePwCdU3ExFZmH9A0zATL8mm8VY6C/CUhGfqHJzyatVQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Data\\AS.Data\\AS.Data.csproj",
+  "projectFilePath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.10\\microsoft.aspnetcore.cryptography.internal.3.1.10.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.10\\microsoft.aspnetcore.cryptography.keyderivation.3.1.10.nupkg.sha512",

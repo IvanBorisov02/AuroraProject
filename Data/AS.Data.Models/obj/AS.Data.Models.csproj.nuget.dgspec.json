@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Data\\AS.Data.Models\\AS.Data.Models.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj",
         "projectName": "AS.Data.Models",
-        "projectPath": "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Data\\AS.Data.Models\\AS.Data.Models.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Data\\AS.Data.Models\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

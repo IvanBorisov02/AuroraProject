@@ -8774,11 +8774,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Web\\AS.Web\\AS.Web.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web\\AS.Web.csproj",
       "projectName": "AS.Web",
-      "projectPath": "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Web\\AS.Web\\AS.Web.csproj",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web\\AS.Web.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Web\\AS.Web\\obj\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8799,11 +8799,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
-              "projectPath": "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
+            "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
+              "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
             },
-            "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Data\\AS.Data\\AS.Data.csproj": {
-              "projectPath": "C:\\Users\\User\\Documents\\AuroraProject\\Aurora-Shop\\Data\\AS.Data\\AS.Data.csproj"
+            "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj": {
+              "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj"
             }
           }
         }

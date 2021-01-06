@@ -7,6 +7,10 @@ namespace AS.Data
 {
     public class ASDbContext : IdentityDbContext<ASUser, IdentityRole, string>
     {
+
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public ASDbContext(DbContextOptions<ASDbContext> options)
             : base(options)
         {

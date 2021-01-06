@@ -8,12 +8,15 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{8A56513B-BBCA-42AB-A90E-44533760278D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{02FFE7B2-B59B-48CF-AF0F-AFFB6A7C481C}"
+	ProjectSection(SolutionItems) = preProject
+		TODO.txt = TODO.txt
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AS.Web", "Web\AS.Web\AS.Web.csproj", "{70ACFBF4-E03A-4D8E-9666-3015D377AABE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AS.Data", "Data\AS.Data\AS.Data.csproj", "{9FAAA5D5-473F-4268-9813-344A4AFE88D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AS.Data", "Data\AS.Data\AS.Data.csproj", "{9FAAA5D5-473F-4268-9813-344A4AFE88D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AS.Data.Models", "Data\AS.Data.Models\AS.Data.Models.csproj", "{68424EB4-CE7E-4631-8F3C-8B6BFC72AB41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AS.Data.Models", "Data\AS.Data.Models\AS.Data.Models.csproj", "{68424EB4-CE7E-4631-8F3C-8B6BFC72AB41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
