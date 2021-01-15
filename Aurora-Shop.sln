@@ -18,7 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AS.Data", "Data\AS.Data\AS.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AS.Data.Models", "Data\AS.Data.Models\AS.Data.Models.csproj", "{68424EB4-CE7E-4631-8F3C-8B6BFC72AB41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AS.Web.Models", "Web\AS.Web.Models\AS.Web.Models.csproj", "{D6551C16-B210-4D1B-A519-16A23C68078B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AS.Web.Models", "Web\AS.Web.Models\AS.Web.Models.csproj", "{D6551C16-B210-4D1B-A519-16A23C68078B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

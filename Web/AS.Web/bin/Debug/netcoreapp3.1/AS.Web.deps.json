@@ -26,6 +26,7 @@
         "dependencies": {
           "AS.Data": "1.0.0",
           "AS.Data.Models": "1.0.0",
+          "AS.Web.Models": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.10",
           "Microsoft.AspNetCore.Identity.UI": "3.1.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.10",
@@ -2530,6 +2531,14 @@
         },
         "compile": {
           "AS.Data.Models.dll": {}
+        }
+      },
+      "AS.Web.Models/1.0.0": {
+        "runtime": {
+          "AS.Web.Models.dll": {}
+        },
+        "compile": {
+          "AS.Web.Models.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -5357,6 +5366,11 @@
       "sha512": ""
     },
     "AS.Data.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AS.Web.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

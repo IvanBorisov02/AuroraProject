@@ -1,0 +1,9 @@
+C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web.Models\bin\Debug\netcoreapp3.1\AS.Web.Models.deps.json
+C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web.Models\bin\Debug\netcoreapp3.1\AS.Web.Models.dll
+C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web.Models\bin\Debug\netcoreapp3.1\AS.Web.Models.pdb
+C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web.Models\obj\Debug\netcoreapp3.1\AS.Web.Models.csprojAssemblyReference.cache
+C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web.Models\obj\Debug\netcoreapp3.1\AS.Web.Models.AssemblyInfoInputs.cache
+C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web.Models\obj\Debug\netcoreapp3.1\AS.Web.Models.AssemblyInfo.cs
+C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web.Models\obj\Debug\netcoreapp3.1\AS.Web.Models.csproj.CoreCompileInputs.cache
+C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web.Models\obj\Debug\netcoreapp3.1\AS.Web.Models.dll
+C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web.Models\obj\Debug\netcoreapp3.1\AS.Web.Models.pdb
