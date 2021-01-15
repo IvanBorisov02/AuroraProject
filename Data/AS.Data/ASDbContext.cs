@@ -17,7 +17,7 @@ namespace AS.Data
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
-        {
+        {              
             base.OnModelCreating(builder);
         }
     }

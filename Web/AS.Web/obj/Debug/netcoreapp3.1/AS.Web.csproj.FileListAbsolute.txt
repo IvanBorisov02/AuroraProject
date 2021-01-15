@@ -361,3 +361,10 @@ C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\
 C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\AS.Web.Models.dll
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\AS.Web.Models.pdb
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Create.cshtml.g.cs
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Delete.cshtml.g.cs
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Details.cshtml.g.cs
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Edit.cshtml.g.cs
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Index.cshtml.g.cs

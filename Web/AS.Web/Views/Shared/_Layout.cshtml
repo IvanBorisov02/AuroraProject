@@ -21,7 +21,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        @if (User.Identity.IsAuthenticated == false)
+                        @if (!this.User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item active">
                                 <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
@@ -30,7 +30,13 @@
                                 <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
                             </li>
                         }
-                        else
+                        @if (this.User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Products" asp-action="Create">Create Product</a>
+                            </li>
+                        }
+                        @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item active">
                                 <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
@@ -40,7 +46,7 @@
 
                     </ul>
                 </div>
-            </nav>            
+            </nav>
         </header>
         <main role="main">
             @RenderBody()
