@@ -18,16 +18,7 @@
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         
-                        @if (!this.User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item active login">
-                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                            </li>
-
-                            <li class="nav-item active register">
-                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
-                            </li>
-                        }
+                        
                         @if (this.User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
@@ -40,9 +31,20 @@
                                 <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
                             </li>
                         }
-
-
                     </ul>
+
+                    <a class="loginA" href="#">Login</a>
+
+                    <section class="loginWindow">
+                        @if (!this.User.Identity.IsAuthenticated)
+                        {
+                            <a class="nav-link login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        }
+
+                        <a class="nav-link register" asp-area="Identity" asp-page="/Account/Register">
+                            Don't have an account? Regiser here!</a>
+                    </section>
+
                 </div>
             </nav>
         </header>
