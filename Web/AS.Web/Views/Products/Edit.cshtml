@@ -1,55 +1,56 @@
-﻿@model AS.Data.Models.Product
+﻿@model ProductEditCommonModel
 
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
-
-<h4>Product</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+<div class="mt-3 mb-5">
+    <h1 class="text-center">Edit Product</h1>
+    <hr class="hr-2 bg-dark" />
+    <form class="mx-auto half-width" method="post" asp-controller="Products" asp-action="Edit">
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input type="text" class="form-control" id="name" placeholder="Name..." asp-for="Name" value="@Model.Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price"></label>
+            <input type="number" class="form-control" id="price" placeholder="Price..." asp-for="Price" value="@Model.Price">
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input type="text" class="form-control" id="description" placeholder="Description..." asp-for="Description" value="@Model.Description">
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <h4 class="text-center">Product Type</h4>
+        <hr class="hr-2 bg-dark half-width mt-4" />
+        <div class="product-type-holder mt-4 d-flex justify-content-around">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="category" id="coat" value="Coat" asp-for="@Model.Category" enabled>
+                <label class="form-check-label" for="coat">Coat</label>
             </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="category" id="puffer" value="puffer" asp-for="@Model.Category" enabled>
+                <label class="form-check-label" for="puffer">Puffer</label>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="category" id="jacket" value="Jacket" asp-for="@Model.Category" enabled>
+                <label class="form-check-label" for="jacket">Jacket</label>
             </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="category" id="jeans" value="Jeans" asp-for="@Model.Category" enabled>
+                <label class="form-check-label" for="jeans">Jeans</label>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="category" id="tshirt" value="Tshirt" asp-for="@Model.Category" enabled>
+                <label class="form-check-label" for="tshirt">T-Shirt</label>
             </div>
-        </form>
-    </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="category" id="other" value="Other" asp-for="@Model.Category" enabled>
+                <label class="form-check-label" for="other">Other</label>
+            </div>
+        </div>
+        <hr class="hr-2 bg-dark half-width mt-4" />
+        <div class="button-holder mt-4 w-25 mx-auto d-flex justify-content-around">
+            <button type="submit" class="btn">Edit</button>
+            <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.Id" class="btn">Cancel</a>
+        </div>
+    </form>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-</body>
-</html>

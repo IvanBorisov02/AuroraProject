@@ -367,4 +367,4 @@ C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\
 C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Delete.cshtml.g.cs
 C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Details.cshtml.g.cs
 C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Edit.cshtml.g.cs
-C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Index.cshtml.g.cs
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Orders\All.cshtml.g.cs
