@@ -16,19 +16,24 @@
                 </button>
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        @if (User.Identity.IsAuthenticated == false)
+                        
+                        @if (!this.User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item active">
                                 <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
                             </li>
-                            <li class="nav-item active">
+
+                            @*<li class="nav-item active">
                                 <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                            </li>*@
+                        }
+                        @if (this.User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Products" asp-action="Create">Create Product</a>
                             </li>
                         }
-                        else
+                        @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item active">
                                 <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
@@ -38,7 +43,7 @@
 
                     </ul>
                 </div>
-            </nav>            
+            </nav>
         </header>
         <main role="main">
             @RenderBody()

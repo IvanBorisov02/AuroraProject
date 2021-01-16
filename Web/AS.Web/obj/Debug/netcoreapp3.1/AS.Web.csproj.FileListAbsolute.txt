@@ -560,3 +560,4 @@ C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\AS.Web.c
 C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\AS.Web.dll
 C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\AS.Web.pdb
 C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\AS.Web.genruntimeconfig.cache
+C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Orders\All.cshtml.g.cs

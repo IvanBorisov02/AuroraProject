@@ -1,51 +1,28 @@
-﻿@model AS.Data.Models.Product
+﻿@model ProductDetailsViewModel
 
-@{
-    Layout = null;
-}
+<div class="mt-3 mb-5">
+    <h1 class="text-center">@Model.Name</h1>
+    <hr class="hr-2 bg-dark" />
+    <div class="product-type-holder half-width mx-auto d-flex justify-content-between">
+        <h3 class="text-center">Type: @Model.Category</h3>
+        <h3 class="text-center">Price: $@Model.Price.ToString("F2")</h3>
+    </div>
+    <hr class="hr-2 bg-dark" />
+    <h3 class="text-center">Description</h3>
+    <div class="product-description-holder">
+        <p class="text-center mt-4">
+            @Model.Description
+        </p>
+    </div>
+    <hr class="hr-2 bg-dark" />
+    <h3 class="text-center">Actions</h3>
+    <div class="product-action-holder mt-4 half-width mx-auto d-flex justify-content-around">
+        <a asp-controller="Orders" asp-action="Order" asp-route-id="@Model.Id" class="btn chushka-bg-color">Order</a>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category.Id)
-        </dd>
-    </dl>
+        @if (this.User.IsInRole("Admin"))
+        {
+            <a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" class="btn chushka-bg-color">Edit</a>
+            <a asp-controller="Products" asp-action="Delete" asp-route-id="@Model.Id" class="btn chushka-bg-color">Delete</a>
+        }
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
-</body>
-</html>
