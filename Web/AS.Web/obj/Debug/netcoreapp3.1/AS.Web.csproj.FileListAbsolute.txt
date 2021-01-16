@@ -548,7 +548,6 @@ C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Vi
 C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Delete.cshtml.g.cs
 C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Details.cshtml.g.cs
 C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Edit.cshtml.g.cs
-C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Products\Index.cshtml.g.cs
 C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\ibori\Desktop\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
