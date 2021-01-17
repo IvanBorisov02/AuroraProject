@@ -48,6 +48,11 @@
             </div>
         </div>
         <hr class="hr-2 bg-dark half-width mt-4" />
+        <div class="form-group">
+            <label asp-for="Image" class="control-label"></label>
+            <input class="form-control" id="image" asp-for="Image">
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
         <div class="button-holder mt-4 w-25 mx-auto d-flex justify-content-around">
             <button type="submit" class="btn">Edit</button>
             <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.Id" class="btn">Cancel</a>

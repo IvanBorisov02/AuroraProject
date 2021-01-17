@@ -1,4 +1,6 @@
-﻿namespace AS.Web.Models
+﻿using Microsoft.AspNetCore.Http;
+
+namespace AS.Web.Models
 {
     public class ProductEditCommonModel
     {
@@ -7,5 +9,6 @@
         public decimal Price { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

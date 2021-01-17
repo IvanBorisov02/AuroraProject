@@ -48,6 +48,9 @@
             </div>
         </div>
         <hr class="hr-2 bg-dark half-width mt-4" />
+        <div class="product-description-holder">
+            <img src="~/Images/@Model.ImageUrl" />
+        </div>
         <div class="button-holder mt-4 w-25 mx-auto d-flex justify-content-around">
             <button type="submit" class="btn">Delete</button>
             <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.Id" class="btn">Cancel</a>
