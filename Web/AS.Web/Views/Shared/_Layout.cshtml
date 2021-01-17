@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/nav.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>@ViewData["Title"] - Aurora Shop</title>
 
 </head>
@@ -35,16 +36,16 @@
 
                     <a class="loginA" href="#">Login</a>
 
-                    <section class="loginWindow">
+                    <div class="loginWindow">
                         @if (!this.User.Identity.IsAuthenticated)
                         {
                             <a class="nav-link login" asp-area="Identity" asp-page="/Account/Login">Login</a>
                         }
 
                         <a class="nav-link register" asp-area="Identity" asp-page="/Account/Register">
-                            Don't have an account? Regiser here!</a>
-                    </section>
-
+                            Don't have an account? Regiser here!
+                        </a>
+                    </div>
                 </div>
             </nav>
         </header>
@@ -54,8 +55,6 @@
         <footer>
         </footer>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>

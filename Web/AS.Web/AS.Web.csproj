@@ -23,4 +23,27 @@
     <ProjectReference Include="..\AS.Web.Models\AS.Web.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\css\Pictures\Kids\Dresses\" />
+    <Folder Include="wwwroot\css\Pictures\Kids\Jeans\" />
+    <Folder Include="wwwroot\css\Pictures\Kids\Shoes\" />
+    <Folder Include="wwwroot\css\Pictures\Kids\Underwear\" />
+    <Folder Include="wwwroot\css\Pictures\Kids\Sweetshirts\" />
+    <Folder Include="wwwroot\css\Pictures\Kids\Shirts\" />
+    <Folder Include="wwwroot\css\Pictures\Kids\T-shirts\" />
+    <Folder Include="wwwroot\css\Pictures\Men\Costumes\" />
+    <Folder Include="wwwroot\css\Pictures\Men\Jeans\" />
+    <Folder Include="wwwroot\css\Pictures\Men\Shoes\" />
+    <Folder Include="wwwroot\css\Pictures\Men\Underwear\" />
+    <Folder Include="wwwroot\css\Pictures\Men\Sweetshirts\" />
+    <Folder Include="wwwroot\css\Pictures\Men\Shirts\" />
+    <Folder Include="wwwroot\css\Pictures\Men\T-shirts\" />
+    <Folder Include="wwwroot\css\Pictures\Women\Dresses\" />
+    <Folder Include="wwwroot\css\Pictures\Women\Coatsandjackets\" />
+    <Folder Include="wwwroot\css\Pictures\Women\Jeans\" />
+    <Folder Include="wwwroot\css\Pictures\Women\Shoes\" />
+    <Folder Include="wwwroot\css\Pictures\Women\Skirts\" />
+    <Folder Include="wwwroot\css\Pictures\Women\Shirts\" />
+  </ItemGroup>
+
 </Project>

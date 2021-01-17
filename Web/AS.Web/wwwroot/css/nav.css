@@ -7,19 +7,6 @@
     left: 990px;
 }
 
-.loginA:hover + .loginWindow 
-{
-    display: block;
-    margin-top: 10px;
-    position: relative;
-    left: 830px;
-    border: 0.0001px solid black;
-    border-radius: 10px;
-    width: 250px;
-    padding: 20px;
-    text-align: center;
-}
-
 a.login {
     display: block;
     position: relative;
@@ -51,6 +38,4 @@ a.register
 {
     display: none;
 }
-
-
 
