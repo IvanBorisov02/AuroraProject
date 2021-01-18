@@ -17,6 +17,7 @@ namespace AS.Web.Controllers
         private readonly ASDbContext _context;
         private readonly IWebHostEnvironment WebHostEnvironment;
 
+
         public ProductsController(ASDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
@@ -84,7 +85,7 @@ namespace AS.Web.Controllers
         {
             Product product = await this._context.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
 
-            ProductEditCommonModel productEditCommonModel = new ProductEditCommonModel
+            ProductEditViewModel productEditViewModel = new ProductEditViewModel
             {
                 Id = product.Id,
                 Price = product.Price,
@@ -94,12 +95,12 @@ namespace AS.Web.Controllers
                 ImageUrl = product.ImageUrl
             };
 
-            return View(productEditCommonModel);
+            return View(productEditViewModel);
         }
 
         [HttpPost]
         //[Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(string id, ProductEditBindingModel productEditBindingModel)
+        public async Task<IActionResult> Edit(string id, ProductEditViewModel productEditViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -108,12 +109,12 @@ namespace AS.Web.Controllers
 
             Product product = await this._context.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
 
-            product.Price = productEditBindingModel.Price;
-            product.Name = productEditBindingModel.Name;
-            product.Description = productEditBindingModel.Description;
-            product.Category = await this._context.Categories.SingleOrDefaultAsync(x => x.Name == productEditBindingModel.Category);
+            product.Price = productEditViewModel.Price;
+            product.Name = productEditViewModel.Name;
+            product.Description = productEditViewModel.Description;
+            product.Category = await this._context.Categories.SingleOrDefaultAsync(x => x.Name == productEditViewModel.Category);
 
-            string fileName = UploadFile(productEditBindingModel);
+            string fileName = UploadFile(productEditViewModel);
 
             product.ImageUrl = fileName;
 
@@ -145,7 +146,7 @@ namespace AS.Web.Controllers
         [HttpPost]
         //[Authorize(Roles = "Admin")]
         [ActionName("Delete")]
-        public async Task<IActionResult> DeleteConfirm(string id, ProductEditCommonModel productEditCommonModel)
+        public async Task<IActionResult> DeleteConfirm(string id)
         {
             if (!ModelState.IsValid)
             {
@@ -176,17 +177,17 @@ namespace AS.Web.Controllers
             return fileName;
         }
 
-        private string UploadFile(ProductEditBindingModel productEditBindingModel)
+        private string UploadFile(ProductEditViewModel productEditViewModel)
         {
             string fileName = null;
-            if (productEditBindingModel.Image != null)
+            if (productEditViewModel.Image != null)
             {
                 string uploadDir = Path.Combine(WebHostEnvironment.WebRootPath, "Images");
-                fileName = Guid.NewGuid().ToString() + "-" + productEditBindingModel.Image.FileName;
+                fileName = Guid.NewGuid().ToString() + "-" + productEditViewModel.Image.FileName;
                 string filePath = Path.Combine(uploadDir, fileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
-                    productEditBindingModel.Image.CopyTo(fileStream);
+                    productEditViewModel.Image.CopyTo(fileStream);
                 }
             }
             return fileName;
