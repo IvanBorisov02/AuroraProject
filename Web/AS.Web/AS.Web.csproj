@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\css\Pictures\Men\Costumes\**" />
+    <Content Remove="wwwroot\css\Pictures\Men\Costumes\**" />
+    <EmbeddedResource Remove="wwwroot\css\Pictures\Men\Costumes\**" />
+    <None Remove="wwwroot\css\Pictures\Men\Costumes\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
@@ -31,7 +38,6 @@
     <Folder Include="wwwroot\css\Pictures\Kids\Sweetshirts\" />
     <Folder Include="wwwroot\css\Pictures\Kids\Shirts\" />
     <Folder Include="wwwroot\css\Pictures\Kids\T-shirts\" />
-    <Folder Include="wwwroot\css\Pictures\Men\Costumes\" />
     <Folder Include="wwwroot\css\Pictures\Men\Jeans\" />
     <Folder Include="wwwroot\css\Pictures\Men\Shoes\" />
     <Folder Include="wwwroot\css\Pictures\Men\Underwear\" />
