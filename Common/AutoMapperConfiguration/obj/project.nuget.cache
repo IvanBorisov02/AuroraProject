@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "H/ic1oYdSz0hNFELsjLZj3YBUd7m61e/XFsPcjACVcAGx/plEJs9CZcj7ZB2sGgLfMFPe49JHpZ+hhACiu7Hpw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ibori\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\ibori\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\ibori\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
