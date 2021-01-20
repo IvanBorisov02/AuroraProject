@@ -9,6 +9,9 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using AS.Services;
+using AS.Services.Models;
+using AutoMapperTestConfiguration;
 
 namespace AS.Web.Controllers
 {
@@ -16,18 +19,20 @@ namespace AS.Web.Controllers
     {
         private readonly ASDbContext _context;
         private readonly IWebHostEnvironment WebHostEnvironment;
+        private readonly IProductsService productsService;
 
 
-        public ProductsController(ASDbContext context, IWebHostEnvironment webHostEnvironment)
+        public ProductsController(ASDbContext context, IWebHostEnvironment webHostEnvironment, IProductsService productsService)
         {
             _context = context;
             WebHostEnvironment = webHostEnvironment;
+            this.productsService = productsService;
         }
 
 
         [HttpGet]
         //[Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             return View();
         }
@@ -41,20 +46,11 @@ namespace AS.Web.Controllers
                 return View();
             }
 
+            ProductServiceModel serviceModel = productCreateViewModel.To<ProductServiceModel>();
+
             string stringFileName = UploadFile(productCreateViewModel);
 
-            Product product = new Product
-            {
-                Id = Guid.NewGuid().ToString(),
-                Price = productCreateViewModel.Price,
-                Name = productCreateViewModel.Name,
-                Description = productCreateViewModel.Description,
-                Category = await this._context.Categories.SingleOrDefaultAsync(x => x.Name == productCreateViewModel.Category),
-                ImageUrl = stringFileName
-            };
-
-            await this._context.AddAsync(product);
-            await this._context.SaveChangesAsync();
+            await productsService.CreateProduct(serviceModel, stringFileName);
 
             return Redirect("/");
         }
@@ -106,20 +102,9 @@ namespace AS.Web.Controllers
             {
                 return View();
             }
-
-            Product product = await this._context.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
-
-            product.Price = productEditViewModel.Price;
-            product.Name = productEditViewModel.Name;
-            product.Description = productEditViewModel.Description;
-            product.Category = await this._context.Categories.SingleOrDefaultAsync(x => x.Name == productEditViewModel.Category);
-
             string fileName = UploadFile(productEditViewModel);
 
-            product.ImageUrl = fileName;
-
-            this._context.Update(product);
-            await this._context.SaveChangesAsync();
+            //productServices.EditProduct(id, productEditViewModel, fileName);
 
             return Redirect("/");
         }

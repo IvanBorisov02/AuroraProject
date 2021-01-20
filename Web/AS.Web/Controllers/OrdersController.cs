@@ -49,7 +49,7 @@ namespace AS.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> AllAsync()
         {
             List<OrderAllViewModel> models = await this._context.Orders

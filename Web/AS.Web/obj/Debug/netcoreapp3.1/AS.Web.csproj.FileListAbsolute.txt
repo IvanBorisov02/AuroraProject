@@ -370,3 +370,10 @@ C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\
 C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
 C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\Home.cshtml.g.cs
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\AS.Services.dll
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\AS.Services.Models.dll
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\AutoMapperConfiguration.dll
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\AS.Services.pdb
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\AS.Services.Models.pdb
+C:\Users\User\Documents\GitHub\AuroraProject\Web\AS.Web\bin\Debug\netcoreapp3.1\AutoMapperConfiguration.pdb

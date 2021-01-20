@@ -1,11 +1,18 @@
 using AS.Data;
 using AS.Data.Models;
+using AS.Services;
+using AS.Services.Models;
+using AS.Web.Models;
+using AutoMapperConfiguration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Threading.Tasks;
 
 namespace AS.Web
 {
@@ -24,6 +31,8 @@ namespace AS.Web
             services.AddDbContext<ASDbContext>(options =>
                     options.UseSqlServer(
                         this.Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<IProductsService, ProductsService>();
             
             services.AddDefaultIdentity<ASUser>(options =>
             {
@@ -48,6 +57,11 @@ namespace AS.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            AutoMapperConfig.RegisterMappings(typeof(ProductCreateViewModel).Assembly.GetTypes(),
+                typeof(ASUser).Assembly.GetTypes(),
+                typeof(ProductServiceModel).Assembly.GetTypes());
+               
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -83,6 +97,7 @@ namespace AS.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }

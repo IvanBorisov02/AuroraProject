@@ -1,0 +1,9 @@
+C:\Users\User\Documents\GitHub\AuroraProject\Common\AutoMapperConfiguration\bin\Debug\netcoreapp3.1\AutoMapperConfiguration.deps.json
+C:\Users\User\Documents\GitHub\AuroraProject\Common\AutoMapperConfiguration\bin\Debug\netcoreapp3.1\AutoMapperConfiguration.dll
+C:\Users\User\Documents\GitHub\AuroraProject\Common\AutoMapperConfiguration\bin\Debug\netcoreapp3.1\AutoMapperConfiguration.pdb
+C:\Users\User\Documents\GitHub\AuroraProject\Common\AutoMapperConfiguration\obj\Debug\netcoreapp3.1\AutoMapperConfiguration.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\AuroraProject\Common\AutoMapperConfiguration\obj\Debug\netcoreapp3.1\AutoMapperConfiguration.AssemblyInfoInputs.cache
+C:\Users\User\Documents\GitHub\AuroraProject\Common\AutoMapperConfiguration\obj\Debug\netcoreapp3.1\AutoMapperConfiguration.AssemblyInfo.cs
+C:\Users\User\Documents\GitHub\AuroraProject\Common\AutoMapperConfiguration\obj\Debug\netcoreapp3.1\AutoMapperConfiguration.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\AuroraProject\Common\AutoMapperConfiguration\obj\Debug\netcoreapp3.1\AutoMapperConfiguration.dll
+C:\Users\User\Documents\GitHub\AuroraProject\Common\AutoMapperConfiguration\obj\Debug\netcoreapp3.1\AutoMapperConfiguration.pdb

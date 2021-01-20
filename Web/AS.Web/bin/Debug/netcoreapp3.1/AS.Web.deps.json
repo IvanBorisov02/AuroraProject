@@ -26,6 +26,7 @@
         "dependencies": {
           "AS.Data": "1.0.0",
           "AS.Data.Models": "1.0.0",
+          "AS.Services": "1.0.0",
           "AS.Web.Models": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.10",
           "Microsoft.AspNetCore.Identity.UI": "3.1.10",
@@ -299,6 +300,21 @@
         },
         "compile": {
           "AS.Web.dll": {}
+        }
+      },
+      "AutoMapper/10.1.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.Reflection.Emit": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.1.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
         }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.10": {
@@ -1972,7 +1988,7 @@
           "System.Linq": "4.3.0",
           "System.ObjectModel": "4.3.0",
           "System.Reflection": "4.3.0",
-          "System.Reflection.Emit": "4.3.0",
+          "System.Reflection.Emit": "4.7.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
           "System.Reflection.Emit.Lightweight": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
@@ -2098,15 +2114,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Reflection.Emit/4.3.0": {
-        "dependencies": {
-          "System.IO": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Emit.ILGeneration": "4.3.0",
-          "System.Reflection.Primitives": "4.3.0",
-          "System.Runtime": "4.3.0"
-        }
-      },
+      "System.Reflection.Emit/4.7.0": {},
       "System.Reflection.Emit.ILGeneration/4.3.0": {
         "dependencies": {
           "System.Reflection": "4.3.0",
@@ -2519,7 +2527,7 @@
           "System.IO": "4.3.0",
           "System.Linq": "4.3.0",
           "System.Reflection": "4.3.0",
-          "System.Reflection.Emit": "4.3.0",
+          "System.Reflection.Emit": "4.7.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
@@ -2557,8 +2565,37 @@
           "AS.Data.Models.dll": {}
         }
       },
+      "AS.Services/1.0.0": {
+        "dependencies": {
+          "AS.Data": "1.0.0",
+          "AS.Data.Models": "1.0.0",
+          "AS.Services.Models": "1.0.0",
+          "AS.Web.Models": "1.0.0"
+        },
+        "runtime": {
+          "AS.Services.dll": {}
+        },
+        "compile": {
+          "AS.Services.dll": {}
+        }
+      },
+      "AS.Services.Models/1.0.0": {
+        "dependencies": {
+          "AS.Data.Models": "1.0.0",
+          "AutoMapperConfiguration": "1.0.0"
+        },
+        "runtime": {
+          "AS.Services.Models.dll": {}
+        },
+        "compile": {
+          "AS.Services.Models.dll": {}
+        }
+      },
       "AS.Web.Models/1.0.0": {
         "dependencies": {
+          "AS.Data.Models": "1.0.0",
+          "AS.Services.Models": "1.0.0",
+          "AutoMapperConfiguration": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "5.0.2"
         },
         "runtime": {
@@ -2566,6 +2603,17 @@
         },
         "compile": {
           "AS.Web.Models.dll": {}
+        }
+      },
+      "AutoMapperConfiguration/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "10.1.1"
+        },
+        "runtime": {
+          "AutoMapperConfiguration.dll": {}
+        },
+        "compile": {
+          "AutoMapperConfiguration.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -4136,6 +4184,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AutoMapper/10.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uMgbqOdu9ZG5cIOty0C85hzzayBH2i9BthnS5FlMqKtMSHDv4ts81a2jS1VFaDBVhlBeIqJ/kQKjQY95BZde9w==",
+      "path": "automapper/10.1.1",
+      "hashPath": "automapper.10.1.1.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.10": {
       "type": "package",
       "serviceable": true,
@@ -5074,12 +5129,12 @@
       "path": "system.reflection/4.3.0",
       "hashPath": "system.reflection.4.3.0.nupkg.sha512"
     },
-    "System.Reflection.Emit/4.3.0": {
+    "System.Reflection.Emit/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-228FG0jLcIwTVJyz8CLFKueVqQK36ANazUManGaJHkO0icjiIypKW7YLWLIWahyIkdh5M7mV2dJepllLyA1SKg==",
-      "path": "system.reflection.emit/4.3.0",
-      "hashPath": "system.reflection.emit.4.3.0.nupkg.sha512"
+      "sha512": "sha512-VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
+      "path": "system.reflection.emit/4.7.0",
+      "hashPath": "system.reflection.emit.4.7.0.nupkg.sha512"
     },
     "System.Reflection.Emit.ILGeneration/4.3.0": {
       "type": "package",
@@ -5399,7 +5454,22 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AS.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AS.Services.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "AS.Web.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AutoMapperConfiguration/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
