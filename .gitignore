@@ -3,3 +3,17 @@
 ################################################################################
 
 /.vs/Aurora-Shop/config/applicationhost.config
+/Common/AutoMapperConfiguration/obj
+/Common/AutoMapperConfiguration/bin
+/Data/AS.Data.Models/bin
+/Data/AS.Data.Models/obj
+/Data/AS.Data/bin
+/Data/AS.Data/obj
+/Service/AS.Services/obj
+/Service/AS.Services/bin
+/Service/AS.Services.Models/bin
+/Service/AS.Services.Models/obj
+/Web/AS.Web.Models/obj
+/Web/AS.Web.Models/bin
+/Web/AS.Web/obj
+/Web/AS.Web/bin
