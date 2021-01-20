@@ -733,14 +733,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj": {
-              "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj"
+            "C:\\Users\\ibori\\Desktop\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj": {
+              "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj"
             },
-            "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
-              "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
+            "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
+              "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
             },
-            "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services.Models\\AS.Services.Models.csproj": {
-              "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services.Models\\AS.Services.Models.csproj"
+            "C:\\Users\\ibori\\Desktop\\AuroraProject\\Service\\AS.Services.Models\\AS.Services.Models.csproj": {
+              "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Service\\AS.Services.Models\\AS.Services.Models.csproj"
             }
           }
         }
@@ -778,13 +778,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\ibori\\Desktop\\AuroraProject\\Web\\AS.Web.Models\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
