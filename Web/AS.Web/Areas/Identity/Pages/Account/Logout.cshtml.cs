@@ -17,7 +17,7 @@ namespace AS.Web.Areas.Identity.Pages.Account
             _signInManager = signInManager;
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnGet()
         {
             await _signInManager.SignOutAsync();
 
