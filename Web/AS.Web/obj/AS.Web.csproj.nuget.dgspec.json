@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ibori\\Desktop\\AuroraProject\\Web\\AS.Web\\AS.Web.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web\\AS.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj",
-        "projectName": "AS.Data.Models",
-        "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj",
-        "packagesPath": "C:\\Users\\ibori\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data.Models\\obj\\",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj",
+        "projectName": "AutoMapperConfiguration",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ibori\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +25,72 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj",
+        "projectName": "AS.Data.Models",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -64,17 +132,20 @@
         }
       }
     },
-    "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj",
         "projectName": "AS.Data",
-        "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj",
-        "packagesPath": "C:\\Users\\ibori\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ibori\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,14 +153,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
-                "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
               }
             }
           }
@@ -138,17 +210,20 @@
         }
       }
     },
-    "C:\\Users\\ibori\\Desktop\\AuroraProject\\Web\\AS.Web.Models\\AS.Web.Models.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services.Models\\AS.Services.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Web\\AS.Web.Models\\AS.Web.Models.csproj",
-        "projectName": "AS.Web.Models",
-        "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Web\\AS.Web.Models\\AS.Web.Models.csproj",
-        "packagesPath": "C:\\Users\\ibori\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Web\\AS.Web.Models\\obj\\",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services.Models\\AS.Services.Models.csproj",
+        "projectName": "AS.Services.Models",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services.Models\\AS.Services.Models.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services.Models\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ibori\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -156,12 +231,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj"
+              },
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -192,17 +275,20 @@
         }
       }
     },
-    "C:\\Users\\ibori\\Desktop\\AuroraProject\\Web\\AS.Web\\AS.Web.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services\\AS.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Web\\AS.Web\\AS.Web.csproj",
-        "projectName": "AS.Web",
-        "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Web\\AS.Web\\AS.Web.csproj",
-        "packagesPath": "C:\\Users\\ibori\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Web\\AS.Web\\obj\\",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services\\AS.Services.csproj",
+        "projectName": "AS.Services",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services\\AS.Services.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ibori\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -210,20 +296,169 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
-                "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
               },
-              "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj": {
-                "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj"
               },
-              "C:\\Users\\ibori\\Desktop\\AuroraProject\\Web\\AS.Web.Models\\AS.Web.Models.csproj": {
-                "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Web\\AS.Web.Models\\AS.Web.Models.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services.Models\\AS.Services.Models.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services.Models\\AS.Services.Models.csproj"
+              },
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web.Models\\AS.Web.Models.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web.Models\\AS.Web.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web.Models\\AS.Web.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web.Models\\AS.Web.Models.csproj",
+        "projectName": "AS.Web.Models",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web.Models\\AS.Web.Models.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj"
+              },
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
+              },
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services.Models\\AS.Services.Models.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services.Models\\AS.Services.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web\\AS.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web\\AS.Web.csproj",
+        "projectName": "AS.Web",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web\\AS.Web.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
+              },
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj"
+              },
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services\\AS.Services.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Service\\AS.Services\\AS.Services.csproj"
+              },
+              "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web.Models\\AS.Web.Models.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Web\\AS.Web.Models\\AS.Web.Models.csproj"
               }
             }
           }

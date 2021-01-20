@@ -14,5 +14,7 @@ namespace AS.Data.Models
         public string CategoryId { get; set; }
 
         public Category Category { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 }
