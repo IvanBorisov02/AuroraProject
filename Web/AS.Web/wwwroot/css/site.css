@@ -27,11 +27,6 @@ header ul
    display: inline;
 }
 
-header nav 
-{
-   display: inline;
-}
-
 header nav ul li 
 {
    display: inline-block;
@@ -52,8 +47,9 @@ header nav ul li a
 
 header nav 
 {
+    display: inline;
    position: relative;
-   top: 1px;
+   top: 100px;
    left: 50px;
    padding-left: 100pt;
    bottom: 5pt;
