@@ -2,6 +2,7 @@
 using AS.Data.Models;
 using AS.Services.Models;
 using AutoMapperTestConfiguration;
+using System;
 using System.Threading.Tasks;
 
 namespace AS.Services
@@ -18,8 +19,9 @@ namespace AS.Services
         {
             productServiceModel.ImageUrl = stringFileName;
 
-
             Product product = productServiceModel.To<Product>();
+
+            product.Id = Guid.NewGuid().ToString();
 
             bool result = await this.db.AddAsync(product) != null;
 

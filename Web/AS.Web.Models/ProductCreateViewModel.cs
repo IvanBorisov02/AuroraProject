@@ -1,11 +1,12 @@
 ﻿using AS.Services.Models;
+using AutoMapper;
 using AutoMapperConfiguration;
 using Microsoft.AspNetCore.Http;
 using System;
 
 namespace AS.Web.Models
 {
-    public class ProductCreateViewModel : IMapTo<ProductServiceModel>
+    public class ProductCreateViewModel : IMapTo<ProductServiceModel>, IHaveCustomMappings
     {
         public string Name { get; set; }
 
@@ -16,5 +17,12 @@ namespace AS.Web.Models
         public string Category { get; set; }
         
         public IFormFile Image { get; set; }
+
+        public void CreateMappings(IProfileExpression configuration)
+        {
+            configuration.
+                CreateMap<ProductCreateViewModel, ProductServiceModel>()
+                .ForMember(dest => dest.CategoryServiceModel, opts => opts.MapFrom(src => new CategoryServiceModel { Name = src.Category }));
+        }
     }
 }
