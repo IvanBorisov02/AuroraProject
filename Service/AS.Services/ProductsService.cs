@@ -33,5 +33,33 @@ namespace AS.Services
 
             return result;
         }
+
+        public async Task<bool> EditProduct(ProductServiceModel productServiceModel, string stringFileName, string id)
+        {
+            productServiceModel.ImageUrl = stringFileName;
+
+            Product product = productServiceModel.To<Product>();
+
+            Category category = await this.db.Categories.SingleOrDefaultAsync(category => category.Name == productServiceModel.CategoryServiceModel.Name);
+
+            product.Category = category;
+            product.Id = id;
+
+            bool result = this.db.Update(product) != null;
+            await this.db.SaveChangesAsync();
+
+            return result;
+
+        }
+
+        public async Task<bool> DeleteProduct(string id)
+        {
+            Product product = await this.db.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
+
+            bool result = this.db.Remove(product) != null;
+            await this.db.SaveChangesAsync();
+
+            return result;
+        }
     }
 }

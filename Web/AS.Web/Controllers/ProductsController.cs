@@ -54,9 +54,7 @@ namespace AS.Web.Controllers
 
             return Redirect("/");
         }
-
        
-
         [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
@@ -102,9 +100,13 @@ namespace AS.Web.Controllers
             {
                 return View();
             }
+
+            ProductServiceModel serviceModel = productEditViewModel.To<ProductServiceModel>();
+            serviceModel.CategoryServiceModel = new CategoryServiceModel { Name = productEditViewModel.Category };
+
             string fileName = UploadFile(productEditViewModel);
 
-            //productServices.EditProduct(id, productEditViewModel, fileName);
+            await productsService.EditProduct(serviceModel, fileName, id);
 
             return Redirect("/");
         }
@@ -138,10 +140,8 @@ namespace AS.Web.Controllers
                 return View("Delete");
             }
 
-            Product product = await this._context.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
+            await productsService.DeleteProduct(id);
 
-            this._context.Remove(product);
-            await this._context.SaveChangesAsync();
 
             return Redirect("/");
         }

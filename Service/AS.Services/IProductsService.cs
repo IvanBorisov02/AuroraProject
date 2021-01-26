@@ -6,5 +6,9 @@ namespace AS.Services
     public interface IProductsService
     {
         Task<bool> CreateProduct(ProductServiceModel productServiceModel, string stringFileName);
+
+        Task<bool> EditProduct(ProductServiceModel productServiceModel, string stringFileName, string id);
+
+        Task<bool> DeleteProduct(string id);
     }
 }

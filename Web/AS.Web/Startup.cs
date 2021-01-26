@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AS.Web
@@ -77,7 +78,24 @@ namespace AS.Web
             {
                 using (var dbContext = serviceScope.ServiceProvider.GetRequiredService<ASDbContext>())
                 {
-                    dbContext.Database.Migrate();
+                    dbContext.Database.EnsureCreated();
+
+                    if (!dbContext.Roles.Any())
+                    {
+                        dbContext.Roles.Add(new IdentityRole
+                        {
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        });
+
+                        dbContext.Roles.Add(new IdentityRole
+                        {
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
+
+                        dbContext.SaveChanges();
+                    }
                 }
             }
 
