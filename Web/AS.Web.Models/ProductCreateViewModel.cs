@@ -18,11 +18,11 @@ namespace AS.Web.Models
         
         public IFormFile Image { get; set; }
 
-        public void CreateMappings(IProfileExpression configuration)
+        public void CreateMappings(IMapperConfigurationExpression mapperConfig)
         {
-            configuration.
-                CreateMap<ProductCreateViewModel, ProductServiceModel>()
-                .ForMember(dest => dest.CategoryServiceModel, opts => opts.MapFrom(src => new CategoryServiceModel { Name = src.Category }));
+            mapperConfig.
+              CreateMap<ProductCreateViewModel, ProductServiceModel>()
+              .ForMember(dest => dest.CategoryServiceModel, opts => opts.MapFrom(src => new CategoryServiceModel { Name = src.Category }));
         }
     }
 }

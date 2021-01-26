@@ -2,6 +2,7 @@
 using AS.Data.Models;
 using AS.Services.Models;
 using AutoMapperTestConfiguration;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
 
@@ -20,6 +21,9 @@ namespace AS.Services
             productServiceModel.ImageUrl = stringFileName;
 
             Product product = productServiceModel.To<Product>();
+            Category category = await this.db.Categories.SingleOrDefaultAsync(category => category.Name == productServiceModel.CategoryServiceModel.Name);
+
+            product.Category = category;
 
             product.Id = Guid.NewGuid().ToString();
 

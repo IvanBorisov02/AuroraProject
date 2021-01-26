@@ -7,6 +7,6 @@ namespace AutoMapperConfiguration
 {
     public interface IHaveCustomMappings
     {
-        void CreateMappings(IProfileExpression configuration);
+        void CreateMappings(IMapperConfigurationExpression mapperConfig);
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace AutoMapperConfiguration
 {
@@ -11,7 +12,6 @@ namespace AutoMapperConfiguration
 
         public static void RegisterMappings(params Type[][] typeCollections)
         {
-
             MapperConfiguration mapperConfiguration = new MapperConfiguration(mapperConfig =>
             {
                 foreach (var typeCollection in typeCollections)
@@ -38,6 +38,10 @@ namespace AutoMapperConfiguration
                             mapperConfig.CreateMap(type, toType);
                         }
 
+                        if (typeof(IHaveCustomMappings).IsAssignableFrom(type))
+                        {
+                            ((IHaveCustomMappings)Activator.CreateInstance(type)).CreateMappings(mapperConfig);
+                        }
                     }
                 }
             });
