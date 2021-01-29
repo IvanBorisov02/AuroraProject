@@ -49,7 +49,7 @@ namespace AS.Web
 
                 options.User.RequireUniqueEmail = true;
             }
-            ).AddEntityFrameworkStores<ASDbContext>();
+            ).AddRoles<IdentityRole>().AddEntityFrameworkStores<ASDbContext>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

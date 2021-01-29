@@ -31,14 +31,14 @@ namespace AS.Web.Controllers
 
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(ProductCreateViewModel productCreateViewModel)
         {
             if (!ModelState.IsValid)
@@ -74,7 +74,7 @@ namespace AS.Web.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id)
         {
             Product product = await this._context.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
@@ -93,7 +93,7 @@ namespace AS.Web.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id, ProductEditViewModel productEditViewModel)
         {
             if (!ModelState.IsValid)
@@ -112,7 +112,7 @@ namespace AS.Web.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
             Product product = await this._context.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
@@ -131,7 +131,7 @@ namespace AS.Web.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirm(string id)
         {
