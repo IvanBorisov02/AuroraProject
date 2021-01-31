@@ -34,6 +34,7 @@ namespace AS.Web
                         this.Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IProductsService, ProductsService>();
+            services.AddTransient<IOrdersService, OrdersService>();
             
             services.AddDefaultIdentity<ASUser>(options =>
             {

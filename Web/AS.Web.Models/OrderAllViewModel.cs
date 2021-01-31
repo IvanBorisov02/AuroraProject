@@ -1,8 +1,10 @@
-﻿using System;
+﻿using AS.Services.Models;
+using AutoMapperConfiguration;
+using System;
 
 namespace AS.Web.Models
 {
-    public class OrderAllViewModel
+    public class OrderAllViewModel : IMapFrom<OrderServiceModel>
     {
         public string Id { get; set; }
         public string Product { get; set; }

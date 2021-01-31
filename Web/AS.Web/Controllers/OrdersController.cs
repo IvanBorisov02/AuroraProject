@@ -10,16 +10,21 @@ using AS.Data.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using AS.Web.Models;
+using AS.Services;
+using AS.Services.Models;
+using AutoMapperTestConfiguration;
 
 namespace AS.Web.Controllers
 {
     public class OrdersController : Controller
     {
         private readonly ASDbContext _context;
+        private readonly IOrdersService ordersService;
 
-        public OrdersController(ASDbContext context)
+        public OrdersController(ASDbContext context, IOrdersService ordersService)
         {
             _context = context;
+            this.ordersService = ordersService;
         }
 
         [HttpGet]
@@ -49,20 +54,28 @@ namespace AS.Web.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AllAsync()
         {
-            List<OrderAllViewModel> models = await this._context.Orders
-                .Include(order => order.Orderer)
-                .Include(order => order.Product)
-                .Select(order => new OrderAllViewModel
-                {
-                    Id = order.Id,
-                    Orderer = order.Orderer.UserName,
-                    OrderedOn = order.OrderedOn,
-                    Product = order.Product.Name
-                })
-                .ToListAsync();
+            //List<OrderAllViewModel> models = await this._context.Orders
+            //    .Include(order => order.Orderer)
+            //    .Include(order => order.Product)
+            //    .Select(order => new OrderAllViewModel
+            //    {
+            //        Id = order.Id,
+            //        Orderer = order.Orderer.UserName,
+            //        OrderedOn = order.OrderedOn,
+            //        Product = order.Product.Name
+            //    })
+            //    .ToListAsync();
+
+            List<OrderAllViewModel> models = new List<OrderAllViewModel>();
+            List<OrderServiceModel> serviceModels = await this.ordersService.AllOrders();
+
+            foreach (var serviceModel in serviceModels)
+            {
+                models.Add(serviceModel.To<OrderAllViewModel>());
+            }
 
             return View(models);
         }
