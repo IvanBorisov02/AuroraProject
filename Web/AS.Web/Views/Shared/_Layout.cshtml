@@ -4,8 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="~/css/reset.css" />
+<<<<<<< HEAD
     <link rel="stylesheet" href="~/css/nav.css">
     <link rel="stylesheet" href="~/css/site.css">
+=======
+    <title>AuroraFashion</title>
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="icon" type="image/png" href="/css/Pictures/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+>>>>>>> a94ab8963348f3e945c5cd24cff6e8b0cd34eb32
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -34,17 +41,37 @@
                                 </li>
 
                                 <li class="nav-item active">
-                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Register"> Don't have an account? Regiser here!</a>
+                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Don't have an account? Regiser here!</a>
                                 </li>
                             }
                             @if (this.User.IsInRole("Admin"))
                             {
-                                <li class="nav-item">
+
+                                <li class="nav-item active">
                                     <a class="nav-link" asp-controller="Products" asp-action="Create">Create Product</a>
+                                </li>
+
+                                <li class="nav-item active">
+                                    <a class="nav-link" asp-controller="Orders" asp-action="All">All Orders</a>
                                 </li>
                             }
                             @if (User.Identity.IsAuthenticated)
                             {
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Clothing</a>
+                                    <section class="subMen">
+                                        <ul>
+                                            <li><a href="#">T-shirts</a></li>
+                                            <li><a href="#">Shirts</a></li>
+                                            <li><a href="#">Sweetshirts</a></li>
+                                            <li><a href="#">Costumes</a></li>
+                                            <li><a href="#">Jeans</a></li>
+                                            <li><a href="#">Underwear</a></li>
+                                            <li><a href="#">Shoes</a></li>
+                                        </ul>
+                                    </section>
+                                </li>
+
                                 <li class="nav-item active">
                                     <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
                                 </li>

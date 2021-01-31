@@ -5840,19 +5840,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ibori\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj",
       "projectName": "AS.Data",
-      "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj",
-      "packagesPath": "C:\\Users\\ibori\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data\\obj\\",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\AS.Data.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\ibori\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5860,14 +5864,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
-              "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
+            "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj": {
+              "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Data\\AS.Data.Models\\AS.Data.Models.csproj"
             }
           }
         }

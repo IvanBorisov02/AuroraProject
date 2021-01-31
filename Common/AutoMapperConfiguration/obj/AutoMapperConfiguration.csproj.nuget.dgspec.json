@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ibori\\Desktop\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ibori\\Desktop\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj",
         "projectName": "AutoMapperConfiguration",
-        "projectPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj",
-        "packagesPath": "C:\\Users\\ibori\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ibori\\Desktop\\AuroraProject\\Common\\AutoMapperConfiguration\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\AutoMapperConfiguration.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\AuroraProject\\Common\\AutoMapperConfiguration\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ibori\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +25,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {

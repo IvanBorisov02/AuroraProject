@@ -31,14 +31,14 @@ namespace AS.Web.Controllers
 
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(ProductCreateViewModel productCreateViewModel)
         {
             if (!ModelState.IsValid)
@@ -54,9 +54,7 @@ namespace AS.Web.Controllers
 
             return Redirect("/");
         }
-
        
-
         [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
@@ -76,7 +74,7 @@ namespace AS.Web.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id)
         {
             Product product = await this._context.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
@@ -95,22 +93,26 @@ namespace AS.Web.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id, ProductEditViewModel productEditViewModel)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
+
+            ProductServiceModel serviceModel = productEditViewModel.To<ProductServiceModel>();
+            serviceModel.CategoryServiceModel = new CategoryServiceModel { Name = productEditViewModel.Category };
+
             string fileName = UploadFile(productEditViewModel);
 
-            //productServices.EditProduct(id, productEditViewModel, fileName);
+            await productsService.EditProduct(serviceModel, fileName, id);
 
             return Redirect("/");
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
             Product product = await this._context.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
@@ -129,7 +131,7 @@ namespace AS.Web.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirm(string id)
         {
@@ -138,10 +140,8 @@ namespace AS.Web.Controllers
                 return View("Delete");
             }
 
-            Product product = await this._context.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
+            await productsService.DeleteProduct(id);
 
-            this._context.Remove(product);
-            await this._context.SaveChangesAsync();
 
             return Redirect("/");
         }
