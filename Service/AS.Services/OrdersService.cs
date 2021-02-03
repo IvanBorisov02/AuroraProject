@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,30 +36,30 @@ namespace AS.Services
             return serviceModels;
         }
 
-        //public async Task<List<OrderAllViewModel>> AllOrders()
-        //{
-        //    List<OrderAllViewModel> models = await this.db.Orders
-        //       .Include(order => order.Orderer)
-        //       .Include(order => order.Product)
-        //       .Select(order => new OrderAllViewModel
-        //       {
-        //           Id = order.Id,
-        //           Orderer = order.Orderer.UserName,
-        //           OrderedOn = order.OrderedOn,
-        //           Product = order.Product.Name
-        //       })
-        //       .ToListAsync();
 
-
-
-        //    return models;
-        //}
-
-        public Task<bool> Order(string id)
+        public async Task<bool> Order(string id, string ordererId)
         {
-            throw new NotImplementedException();
-        }
+            Product product = await this.db.Products
+              .Include(product => product.Category)
+              .SingleOrDefaultAsync(product => product.Id == id);         
 
-        
+            ASUser aSUser = await this.db.Users
+                .SingleOrDefaultAsync(user => user.Id == ordererId);
+
+            Order order = new Order
+            {
+                Id = Guid.NewGuid().ToString(),
+                OrderedOn = DateTime.Now,
+                Product = product,
+                Orderer = aSUser
+            };
+
+            bool result = await this.db.AddAsync(order) != null;
+
+            await this.db.SaveChangesAsync();
+
+            return result;
+
+        }
     }
 }

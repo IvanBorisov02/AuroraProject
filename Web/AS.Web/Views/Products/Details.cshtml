@@ -10,9 +10,17 @@
     <hr class="hr-2 bg-dark" />
     <h3 class="text-center">Description</h3>
     <div class="product-description-holder">
-        <p class="text-center mt-4">
-            @Model.Description
-        </p>
+        @if (Model.Description == null)
+        {
+<p class="text-center mt-4">
+    No description
+</p> }
+            else
+            {
+<p class="text-center mt-4">
+    @Model.Description
+</p>            }
+
     </div>
     <div class="product-description-holder">
         <img src="~/Images/@Model.ImageUrl" />
@@ -24,8 +32,7 @@
 
         @if (this.User.IsInRole("Admin"))
         {
-            <a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" class="btn">Edit</a>
-            <a asp-controller="Products" asp-action="Delete" asp-route-id="@Model.Id" class="btn">Delete</a>
-        }
+<a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" class="btn">Edit</a>
+                <a asp-controller="Products" asp-action="Delete" asp-route-id="@Model.Id" class="btn">Delete</a>}
     </div>
 </div>

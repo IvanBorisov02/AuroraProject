@@ -30,25 +30,9 @@ namespace AS.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Order(string id)
         {
-            Product product = await this._context.Products
-                .Include(product => product.Category)
-                .SingleOrDefaultAsync(product => product.Id == id);
+            string ordererId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            string claim = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-
-            ASUser aSUser = await this._context.Users
-                .SingleOrDefaultAsync(user => user.Id == claim);
-
-            Order order = new Order
-            {
-                Id = Guid.NewGuid().ToString(),
-                OrderedOn = DateTime.Now,
-                Product = product,
-                Orderer = aSUser
-            };
-
-            await this._context.AddAsync(order);
-            await this._context.SaveChangesAsync();
+            await this.ordersService.Order(id, ordererId);
 
             return Redirect($"/Products/Details/{id}");
         }
@@ -57,17 +41,6 @@ namespace AS.Web.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AllAsync()
         {
-            //List<OrderAllViewModel> models = await this._context.Orders
-            //    .Include(order => order.Orderer)
-            //    .Include(order => order.Product)
-            //    .Select(order => new OrderAllViewModel
-            //    {
-            //        Id = order.Id,
-            //        Orderer = order.Orderer.UserName,
-            //        OrderedOn = order.OrderedOn,
-            //        Product = order.Product.Name
-            //    })
-            //    .ToListAsync();
 
             List<OrderAllViewModel> models = new List<OrderAllViewModel>();
             List<OrderServiceModel> serviceModels = await this.ordersService.AllOrders();

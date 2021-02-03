@@ -10,6 +10,8 @@ namespace AS.Services
 {
     public class ProductsService : IProductsService
     {
+        private const string noDescriptionMessage = "No Description";
+
         private readonly ASDbContext db;
         public ProductsService(ASDbContext db)
         {
@@ -19,6 +21,12 @@ namespace AS.Services
         public async Task<bool> CreateProduct(ProductServiceModel productServiceModel, string stringFileName)
         {
             productServiceModel.ImageUrl = stringFileName;
+
+            if (productServiceModel.Description == null)
+            {
+                productServiceModel.Description = noDescriptionMessage;
+            }
+
 
             Product product = productServiceModel.To<Product>();
             Category category = await this.db.Categories.SingleOrDefaultAsync(category => category.Name == productServiceModel.CategoryServiceModel.Name);
