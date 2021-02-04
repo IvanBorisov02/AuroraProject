@@ -32,6 +32,7 @@ namespace AS.Services
             Category category = await this.db.Categories.SingleOrDefaultAsync(category => category.Name == productServiceModel.CategoryServiceModel.Name);
 
             product.Category = category;
+            product.CategoryId = product.Category.Id;
 
             product.Id = Guid.NewGuid().ToString();
 

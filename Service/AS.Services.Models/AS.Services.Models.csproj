@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Stripe.net" Version="39.34.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Common\AutoMapperConfiguration\AutoMapperConfiguration.csproj" />
     <ProjectReference Include="..\..\Data\AS.Data.Models\AS.Data.Models.csproj" />
   </ItemGroup>

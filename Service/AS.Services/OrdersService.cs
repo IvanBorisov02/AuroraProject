@@ -30,7 +30,14 @@ namespace AS.Services
 
             foreach (var order in orders)
             {
+                var currentProduct = await this.db.Products.FirstOrDefaultAsync(product => product.Id == order.ProductId);
+                var currentOrderer = await this.db.Users.FirstOrDefaultAsync(user => user.Id == order.OrdererId);
+
+                order.Product = currentProduct;
+                order.Orderer = currentOrderer;
+
                 serviceModels.Add(order.To<OrderServiceModel>());
+                
             }
 
             return serviceModels;
