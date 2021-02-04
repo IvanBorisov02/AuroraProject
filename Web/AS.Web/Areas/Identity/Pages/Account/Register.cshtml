@@ -1,0 +1,207 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<head>
+    <style>
+
+        h1 {
+            position: relative;
+            left: 400px;
+            line-height: 1.2;
+            letter-spacing: .15em;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #000;
+            font-family: CriqueGrotesk,Helvetica,Arial,sans-serif;
+            font-size: 20px;
+        }
+
+        .email label {
+            position: relative;
+            left: 400px;
+            font-family: CriqueGrotesk,Helvetica,Arial,sans-serif;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: .15em;
+            margin-bottom: .5rem;
+            margin-top: 30px;
+            display: block;
+        }
+
+        .email input {
+            position: relative;
+            left: 400px;
+            margin-top: 10px;
+            padding-top: 1.2rem;
+            padding-bottom: 1.2rem;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            border: 0;
+            border: 1px solid #CCC;
+            border-radius: 0;
+            max-width: 100%;
+            width: 500px;
+            font-family: CriqueGrotesk,Helvetica,Arial,sans-serif;
+            font-weight: 400;
+            outline: none;
+            background: rgba(0,0,0,0);
+            color: inherit;
+            padding: 1rem 1.5rem;
+            -webkit-transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+            -webkit-appearance: none;
+        }
+
+        .password label {
+            position: relative;
+            left: 400px;
+            top: -10px;
+            font-family: CriqueGrotesk,Helvetica,Arial,sans-serif;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: .15em;
+            margin-bottom: .5rem;
+            margin-top: 30px;
+            display: block;
+        }
+
+        .password input {
+            position: relative;
+            left: 400px;
+            /* top: 70px; */
+            /* position: relative; */
+            margin-top: 10px;
+            padding-top: 1.2rem;
+            padding-bottom: 1.2rem;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            border: 0;
+            border: 1px solid #CCC;
+            border-radius: 0;
+            max-width: 100%;
+            width: 500px;
+            font-family: CriqueGrotesk,Helvetica,Arial,sans-serif;
+            font-weight: 400;
+            outline: none;
+            background: rgba(0,0,0,0);
+            color: inherit;
+            padding: 1rem 1.5rem;
+            -webkit-transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+            -webkit-appearance: none;
+        }
+
+        .rpassword label {
+            position: relative;
+            left: 400px;
+            top: -5px;
+            font-family: CriqueGrotesk,Helvetica,Arial,sans-serif;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: .15em;
+            margin-bottom: .5rem;
+            margin-top: 30px;
+            display: block;
+        }
+
+        .rpassword input {
+            position: relative;
+            left: 400px;
+            /* top: 30px; */
+            margin-top: 10px;
+            padding-top: 1.2rem;
+            padding-bottom: 1.2rem;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            border: 0;
+            border: 1px solid #CCC;
+            border-radius: 0;
+            max-width: 100%;
+            width: 500px;
+            font-family: CriqueGrotesk,Helvetica,Arial,sans-serif;
+            font-weight: 400;
+            outline: none;
+            background: rgba(0,0,0,0);
+            color: inherit;
+            padding: 1rem 1.5rem;
+            -webkit-transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+            -webkit-appearance: none;
+        }
+
+        .end {
+            position: relative;
+            left: 400px;
+            top: 30px;
+            -moz-user-select: "none";
+            -ms-user-select: "none";
+            -webkit-user-select: "none";
+            user-select: "none";
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: #000;
+            color: #fff;
+            display: inline-block;
+            width: 220px;
+            min-height: 3rem;
+            /* max-width: 100%; */
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: .15em;
+            padding: 0 2rem;
+            text-transform: uppercase;
+            /* -webkit-transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1); */
+            transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+            border: none;
+            /* min-width: 21rem; */
+            cursor: pointer;
+        }
+
+        h1, .email, .password, .rpassword
+        {
+            width: 380px;
+        }
+
+    </style>
+</head>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <h1>Register</h1>
+            <div class="form-group email">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group password">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group rpassword">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary end">Register</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
