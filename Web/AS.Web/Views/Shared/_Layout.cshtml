@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuroraFashion</title>
+    <link rel="icon" type="image/png" href="/css/Pictures/favicon.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>@ViewData["Title"] - Aurora Shop</title>
+
+    <style>
+
+        .Logo {
+            font-family: 'Big Shoulders Display', cursive;
+        }
+
+        header {
+            margin-top: 25px;
+        }
+
+        .Logo {
+            display: inline;
+            font-weight: normal;
+            font-size: 45px;
+            padding-left: 30px;
+            position: relative;
+            bottom: 15px;
+        }
+
+        .login {
+            letter-spacing: .15em;
+            position: relative;
+            bottom: 72px;
+            left: 800px;
+            width: 50px;
+            list-style-type: none;
+        }
+
+            .login a {
+                text-decoration: none;
+            }
+
+        .register {
+            display: inline;
+            left: 900px;
+            position: relative;
+            bottom: 90px;
+        }
+
+            .register a {
+                text-decoration: none;
+                letter-spacing: .15em;
+            }
+
+        .create {
+            display: inline;
+            position: relative;
+            left: 860px;
+            bottom: 65px;
+        }
+
+            .create a {
+                text-decoration: none;
+                /* list-style: none; */
+                /* list-style-type: none; */
+                /* position: relative; */
+                letter-spacing: .15em;
+                /* position: relative; */
+                /* bottom: 72px; */
+                /* left: 800px; */
+                width: 50px;
+                list-style-type: none;
+                text-decoration: none;
+                color: black;
+            }
+
+        .allOrders {
+            display: inline;
+            position: relative;
+            left: 923px;
+            bottom: 65px;
+        }
+
+            .allOrders a {
+                letter-spacing: .15em;
+                /* position: relative; */
+                /* bottom: 72px; */
+                /* left: 800px; */
+                width: 50px;
+                list-style-type: none;
+                text-decoration: none;
+                color: black;
+            }
+
+        .clothing {
+            display: inline;
+            position: relative;
+            left: 350px;
+            bottom: 65px;
+        }
+
+            .clothing a {
+                letter-spacing: .15em;
+                /* position: relative; */
+                /* bottom: 72px; */
+                /* left: 800px; */
+                width: 50px;
+                list-style-type: none;
+                text-decoration: none;
+                color: black;
+            }
+
+            .clothing section {
+                display: none;
+            }
+
+        .logout {
+            display: inline;
+            position: relative;
+            left: 900px;
+            bottom: 65px;
+        }
+
+            .logout a {
+                letter-spacing: .15em;
+                /* position: relative; */
+                /* bottom: 72px; */
+                /* left: 800px; */
+                width: 50px;
+                list-style-type: none;
+                text-decoration: none;
+                color: black;
+            }
+    </style>
+</head>
+<body>
+    <div class="container-fluid app-container">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <h2 class="Logo">AuroraFashion</h2>
+                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav">
+                            @if (!this.User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item active login">
+                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                </li>
+
+                                <li class="nav-item active register">
+                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Don't have an account? Regiser here!</a>
+                                </li>
+                            }
+                            @if (this.User.IsInRole("Admin"))
+                            {
+
+                                <li class="nav-item active create">
+                                    <a class="nav-link" asp-controller="Products" asp-action="Create">Create Product</a>
+                                </li>
+
+                                <li class="nav-item active allOrders">
+                                    <a class="nav-link" asp-controller="Orders" asp-action="All">All Orders</a>
+                                </li>
+                            }
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item active clothing">
+                                    <a class="nav-link" href="#">Clothing</a>
+                                    <section class="subMen">
+                                        <ul>
+                                            <li><a href="#">T-shirts</a></li>
+                                            <li><a href="#">Shirts</a></li>
+                                            <li><a href="#">Sweetshirts</a></li>
+                                            <li><a href="#">Costumes</a></li>
+                                            <li><a href="#">Jeans</a></li>
+                                            <li><a href="#">Underwear</a></li>
+                                            <li><a href="#">Shoes</a></li>
+                                        </ul>
+                                    </section>
+                                </li>
+
+                                <li class="nav-item active logout">
+                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
+                                </li>
+
+                            }
+
+</div>
+                </div>
+            </nav>
+        </header>
+        <main role="main">
+            @RenderBody()
+        </main>
+        <footer>
+        </footer>
+    </div>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
