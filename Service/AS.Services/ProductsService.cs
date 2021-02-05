@@ -65,6 +65,15 @@ namespace AS.Services
         {
             Product product = await this.db.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
 
+            //cascading
+            foreach (var order in this.db.Orders)
+            {
+                if (order.ProductId == product.Id)
+                {
+                    db.Orders.Remove(order);
+                }
+            }
+
             bool result = this.db.Remove(product) != null;
             await this.db.SaveChangesAsync();
 

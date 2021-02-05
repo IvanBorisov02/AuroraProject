@@ -43,6 +43,38 @@ namespace AS.Web.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Categorize(string categoryName)
+        {
+            List<ProductCategorizedViewModel> models = new List<ProductCategorizedViewModel>();
+
+            if (this.User.Identity.IsAuthenticated)
+            {
+                 models = await this._context.Products
+                    .Where(product => product.Category.Name == categoryName)
+                    .Select(product => new ProductCategorizedViewModel
+                    {
+                        Id = product.Id,
+                        Name = product.Name,
+                        Price = product.Price,
+                        Description = product.Description,
+                        CategoryName = categoryName
+                    })
+                    .ToListAsync();
+
+
+                if (models.Count == 0)
+                {
+                    ProductEmptyViewModel model = new ProductEmptyViewModel { CategoryName = categoryName };
+
+                    return this.View("Empty", model);
+                }
+
+                return this.View("Categorized", models);
+            }
+
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

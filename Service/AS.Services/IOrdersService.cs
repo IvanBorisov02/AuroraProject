@@ -8,7 +8,7 @@ namespace AS.Services
 {
     public interface IOrdersService
     {
-        Task<bool> Order(string id, string ordererId);
+        Task<bool> Order(string id, string ordererId, string stripeEmail, string stripeToken);
 
         Task <List<OrderServiceModel>> AllOrders();
 

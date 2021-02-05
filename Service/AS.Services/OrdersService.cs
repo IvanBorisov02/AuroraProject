@@ -4,6 +4,7 @@ using AS.Services.Models;
 using AS.Web.Models;
 using AutoMapperTestConfiguration;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace AS.Services
 
         public async Task<List<OrderServiceModel>> AllOrders()
         {
-            List<Order> orders = await this.db.Orders.ToListAsync();
+            List<Data.Models.Order> orders = await this.db.Orders.ToListAsync();
 
             List<OrderServiceModel> serviceModels = new List<OrderServiceModel>();
 
@@ -44,16 +45,38 @@ namespace AS.Services
         }
 
 
-        public async Task<bool> Order(string id, string ordererId)
+        public async Task<bool> Order(string id, string ordererId, string stripeEmail, string stripeToken)
         {
-            Product product = await this.db.Products
+
+            var customers = new CustomerService();
+            var charges = new ChargeService();          
+
+            Data.Models.Product product = await this.db.Products
               .Include(product => product.Category)
-              .SingleOrDefaultAsync(product => product.Id == id);         
+              .SingleOrDefaultAsync(product => product.Id == id);
+
+            var customer = customers.Create(new CustomerCreateOptions
+            {
+                Email = stripeEmail,
+                Source = stripeToken
+            });
+
+            var charge = charges.Create(new ChargeCreateOptions
+            {
+                Amount = (long)product.Price * 100,
+                Currency = "usd",
+                Customer = customer.Id
+            });
+
+            if (charge.Status == "succeeded")
+            {
+                string balanceTransactionId = charge.BalanceTransactionId;
+            }                  
 
             ASUser aSUser = await this.db.Users
                 .SingleOrDefaultAsync(user => user.Id == ordererId);
 
-            Order order = new Order
+            Data.Models.Order order = new Data.Models.Order
             {
                 Id = Guid.NewGuid().ToString(),
                 OrderedOn = DateTime.Now,
