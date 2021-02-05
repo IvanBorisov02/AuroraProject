@@ -1,0 +1,59 @@
+﻿@model ProductDeleteViewModel
+
+<div class="mt-3 mb-5">
+    <h1 class="text-center">Delete Product</h1>
+    <hr class="hr-2 bg-dark" />
+    <form class="mx-auto half-width" method="post" asp-controller="Products" asp-action="Delete">
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input type="text" class="form-control" id="name" placeholder="Name..." asp-for="Name" value="@Model.Name" disabled>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price"></label>
+            <input type="number" class="form-control" id="price" placeholder="Price..." asp-for="Price" value="@Model.Price" disabled>
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input type="text" class="form-control" id="description" placeholder="Description..." asp-for="Description" value="@Model.Description" disabled>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <h4 class="text-center">Product Type</h4>
+        <hr class="hr-2 bg-dark half-width mt-4" />
+        <div class="product-type-holder mt-4 d-flex justify-content-around">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="category" id="coat" value="Coat" asp-for="@Model.Category" disabled>
+                <label class="form-check-label" for="coat">Coat</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="category" id="puffer" value="puffer" asp-for="@Model.Category" disabled>
+                <label class="form-check-label" for="puffer">Puffer</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="category" id="jacket" value="Jacket" asp-for="@Model.Category" disabled>
+                <label class="form-check-label" for="jacket">Jacket</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="category" id="jeans" value="Jeans" asp-for="@Model.Category" disabled>
+                <label class="form-check-label" for="jeans">Jeans</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="category" id="tshirt" value="Tshirt" asp-for="@Model.Category" disabled>
+                <label class="form-check-label" for="tshirt">T-Shirt</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="category" id="other" value="Other" asp-for="@Model.Category" disabled>
+                <label class="form-check-label" for="other">Other</label>
+            </div>
+        </div>
+        <hr class="hr-2 bg-dark half-width mt-4" />
+        <div class="product-description-holder">
+            <img src="~/Images/@Model.ImageUrl" />
+        </div>
+        <div class="button-holder mt-4 w-25 mx-auto d-flex justify-content-around">
+            <button type="submit" class="btn">Delete</button>
+            <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.Id" class="btn">Cancel</a>
+        </div>
+    </form>
+</div>
