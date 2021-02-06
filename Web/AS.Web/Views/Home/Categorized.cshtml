@@ -23,7 +23,6 @@
             }
         }
     </div>
-<hr class="hr-2 bg-dark" />
     <div class="container-fluid product-holder">
         <div class="container-fluid product-holder">
             @if (Model != null)
@@ -37,7 +36,6 @@
                             <a asp-controller="Products" asp-action="Details" asp-route-id="@Model[i + j].Id" class="product col-md-2 rounded-top rounded-bottom px-3">
                                 <div>
                                     <h5 class="text-center mt-3">@Model[i + j].Name</h5>
-                                    <hr class="hr-1 bg-white" />
                                     <p class="text-black text-center">
                                         @if (Model[i + j].Description != null)
                                         {
@@ -55,7 +53,6 @@
                                          <p class="text-center">This product has no description</p>
                                         }
                                     </p>
-                                    <hr class="hr-1 bg-black" />
                                     <h6 class="text-center text-black-50 mb-3">$@Model[i + j].Price.ToString("F2")</h6>
                                 </div>
                             </a>
