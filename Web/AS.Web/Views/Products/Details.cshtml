@@ -2,13 +2,176 @@
 @using Microsoft.Extensions.Options
 @inject IOptions<StripeConfig.StripeSettings> Stripe
 
-<div class="mt-3 mb-5">
+<head>
+
+    <style>
+
+        .begin > h1 {
+            display: inline;
+            position: relative;
+            left: 550px;
+            font-size: 33px;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        .category {
+            display: inline;
+            position: relative;
+            left: 570px;
+            top: 30px;
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        .price {
+            display: inline;
+            position: relative;
+            left: 400px;
+            top: 80px;
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        .description {
+            display: inline;
+            position: relative;
+            top: 100px;
+            left: 610px;
+        }
+
+        .has {
+            display: inline;
+            position: relative;
+            top: 110px;
+            left: 200px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .img > img {
+            height: 500px;
+            width: 450px;
+            position: relative;
+            top: 130px;
+            left: 420px;
+        }
+
+        .order {
+            position: relative;
+            top: 200px;
+            left: 550px;
+            -moz-user-select: "none";
+            -ms-user-select: "none";
+            -webkit-user-select: "none";
+            user-select: "none";
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: #000;
+            color: #fff;
+            display: inline-block;
+            width: 253px;
+            min-height: 3rem;
+            /* max-width: 100%; */
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: .15em;
+            padding: 0 2rem;
+            text-transform: uppercase;
+            /* -webkit-transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1); */
+            transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+            border: none;
+            /* min-width: 21rem; */
+            cursor: pointer;
+        }
+
+        .edit {
+            position: relative;
+            top: 230px;
+            text-decoration: none;
+            color: black;
+            letter-spacing: 2px;
+            left: 550px;
+            -moz-user-select: "none";
+            -ms-user-select: "none";
+            -webkit-user-select: "none";
+            user-select: "none";
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: #000;
+            color: #fff;
+            display: inline-block;
+            width: 50px;
+            min-height: 45px;
+            /* max-width: 100%; */
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: .15em;
+            padding: 0 2rem;
+            text-transform: uppercase;
+            /* -webkit-transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1); */
+            transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+            border: none;
+            /* min-width: 21rem; */
+            cursor: pointer;
+            padding-top: 25px;
+        }
+
+        .delete {
+            position: relative;
+            left: 545px;
+            top: 230px;
+            -moz-user-select: "none";
+            -ms-user-select: "none";
+            -webkit-user-select: "none";
+            user-select: "none";
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: #000;
+            color: #fff;
+            display: inline-block;
+            width: 50px;
+            min-height: 45px;
+            /* max-width: 100%; */
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: .15em;
+            padding: 0 45px;
+            text-transform: uppercase;
+            /* -webkit-transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1); */
+            transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+            border: none;
+            /* min-width: 21rem; */
+            cursor: pointer;
+            padding-top: 25px;
+        }
+
+    </style>
+
+</head>
+
+
+<div class="mt-3 mb-5 begin">
     <h1 class="text-center">@Model.Name</h1>
-    <div class="product-type-holder half-width mx-auto d-flex justify-content-between">
-        <h3 class="text-center">Category: @Model.Category</h3>
-        <h3 class="text-center">Price: $@Model.Price.ToString("F2")</h3>
+    <div class="product-type-holder half-width mx-auto d-flex justify-content-between type">
+        <h3 class="text-center category">Category: @Model.Category</h3>
+        <h3 class="text-center price">Price: $@Model.Price.ToString("F2")</h3>
     </div>
-    <h3 class="text-center">Description</h3>
+    <h3 class="text-center description">Description</h3>
     <div class="product-description-holder">
         @if (Model.Description == null)
         {
@@ -17,15 +180,14 @@
 </p> }
             else
             {
-<p class="text-center mt-4">
+<p class="text-center mt-4 has">
     @Model.Description
 </p>            }
 
     </div>
-    <div class="product-description-holder">
+    <div class="product-description-holder img">
         <img src="~/Images/@Model.ImageUrl" />
     </div>
-    <h3 class="text-center">Actions</h3>
     <div class="product-action-holder mt-4 half-width mx-auto d-flex justify-content-around">
         @*<a asp-controller="Orders" asp-action="Order" asp-route-id="@Model.Id" class="btn">Order</a>*@
         <form asp-controller="Orders" asp-action="Order" asp-route-id="@Model.Id" method="POST">
@@ -43,12 +205,12 @@
                 // have more than 1 button of that class
                 document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
             </script>
-            <button type="submit" class="btn">Order</button>
+            <button type="submit" class="btn order">Order</button>
         </form>
         @if (this.User.IsInRole("Admin"))
         {
-                <a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" class="btn">Edit</a>
-                <a asp-controller="Products" asp-action="Delete" asp-route-id="@Model.Id" class="btn">Delete</a>
+                <a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" class="btn edit">Edit</a>
+                <a asp-controller="Products" asp-action="Delete" asp-route-id="@Model.Id" class="btn delete">Delete</a>
         }
     </div>
 </div>

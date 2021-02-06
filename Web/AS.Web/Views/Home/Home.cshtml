@@ -28,6 +28,54 @@
             font-weight: normal;
             letter-spacing: 2px;
         }
+
+        div.gallery {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 180px;
+            height: 300px;
+        }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: 50%;
+        }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+        }
+
+        /*.imageP {
+            width: 300px;
+            height: 200px;
+        }*/
+
+        .all {
+            position: relative;
+            top: 140px;
+            left: 100px;
+        }
+
+        .gallery h5 {
+            text-align: center;
+            color: black;
+            font-size: 15px;
+            letter-spacing: 1.5px;
+        }
+
+        .gallery h6 {
+            text-align: center;
+            color: black;
+            font-size: 15px;
+            letter-spacing: 1.5px;
+        }
+
     </style>
 
 </head>
@@ -43,7 +91,7 @@ else
 <h4 class="nonAdmin">Feel free to view and order any of our products.</h4>}
     </div>
     <div class="container-fluid product-holder">
-        <div class="container-fluid product-holder">
+        <div class="container-fluid product-holder all">
             @if (Model != null)
             {
 @for (int i = 0; i < Model.Count; i += 5)
@@ -53,28 +101,12 @@ else
     @for (int j = 0; j < 5 && (i + j) < Model.Count; j++)
     {
 <a asp-controller="Products" asp-action="Details" asp-route-id="@Model[i + j].Id" class="product col-md-2 rounded-top rounded-bottom px-3">
-    <div>
-        <h5 class="text-center mt-3">@Model[i + j].Name</h5>
-        
-        @*<p class="text-black text-center">
-                @if (Model[i + j].Description != null)
-                {
-                    @if (Model[i + j].Description.Length > 50)
-                    {
-                        @(Model[i + j].Description.Substring(0, 50) + "...")
-                    }
-                    else
-                    {
-                        @Model[i + j].Description
-                    }
-                }
-                else
-                {
-                 <p class="text-center">This product has no description</p>
-                }
-            </p>*@
-        <h6 class="text-center text-black-50 mb-3">$@Model[i + j].Price.ToString("F2")</h6>
-    </div>
+        <div class="gallery">
+            <img src="~/Images/@Model[i+j].ImageUrl" width="300" height="200" />
+            <h5 class="text-center mt-3">@Model[i + j].Name</h5>
+            <h6 class="text-center text-black-50 mb-3">$@Model[i + j].Price.ToString("F2")</h6>
+
+        </div>
 </a>}
 
 </div>          }}
