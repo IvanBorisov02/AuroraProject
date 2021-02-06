@@ -127,6 +127,13 @@
                 /* min-width: 21rem; */
                 cursor: pointer;
             }
+
+        .sms {
+            position: relative;
+            top: 20px;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
     </style>
 </head>
 
@@ -139,7 +146,7 @@
                 <div class="form-group email">
                     <label asp-for="Input.Email">Email Address</label>
                     <input asp-for="Input.Email" class="form-control" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    <span asp-validation-for="Input.Email" class="text-danger sms"></span>
                 </div>
                 <div class="form-group password">
                     <label asp-for="Input.Password"></label>

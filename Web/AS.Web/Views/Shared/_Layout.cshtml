@@ -41,6 +41,19 @@
                 text-decoration: none;
             }
 
+        .home {
+            display: inline;
+            position: relative;
+            left: 300px;
+            bottom: 65px;
+        }
+
+            .home a {
+                text-decoration: none;
+                color: black;
+                letter-spacing: .15em;
+            }
+
         .register {
             display: inline;
             left: 900px;
@@ -56,7 +69,7 @@
         .create {
             display: inline;
             position: relative;
-            left: 850px;
+            left: 860px;
             bottom: 65px;
         }
 
@@ -78,7 +91,7 @@
         .allOrders {
             display: inline;
             position: relative;
-            left: 900px;
+            left: 923px;
             bottom: 65px;
         }
 
@@ -93,34 +106,32 @@
                 color: black;
             }
 
-        /*.clothing {
+        .clothing {
             display: inline;
             position: relative;
             left: 350px;
             bottom: 65px;
-            padding-bottom: 100px;
         }
 
             .clothing a {
-                letter-spacing: .15em;*/
-        /* position: relative; */
-        /* bottom: 72px; */
-        /* left: 800px; */
-        /*width: 50px;
+                letter-spacing: .15em;
+                /* position: relative; */
+                /* bottom: 72px; */
+                /* left: 800px; */
+                width: 50px;
                 list-style-type: none;
                 text-decoration: none;
                 color: black;
-                padding-bottom: 100px;
-            }*/
+            }
 
-        .clothing section {
-            display: none;
-        }
+            .clothing section {
+                display: none;
+            }
 
         .logout {
             display: inline;
             position: relative;
-            left: 860px;
+            left: 900px;
             bottom: 65px;
         }
 
@@ -135,65 +146,9 @@
                 color: black;
             }
 
-        .home {
-            display: inline;
-            position: relative;
-            left: 300px;
-            bottom: 65px;
+        .first {
+            margin-bottom: 100px;
         }
-
-            .home a {
-                text-decoration: none;
-                color: black;
-                letter-spacing: .15em;
-            }
-
-
-        .coats {
-            display: inline;
-            position: relative;
-            left: 140px;
-            top: 30px;
-        }
-
-        .puffers {
-            display: inline;
-            position: relative;
-            left: 90px;
-            top: 70px;
-        }
-
-        .jackets {
-            display: inline;
-            position: relative;
-            left: 127px;
-            top: 30px;
-        }
-
-        .jeans {
-            display: inline;
-            position: relative;
-            left: 60px;
-            top: 70px;
-        }
-
-        .tshirts {
-            display: inline;
-            position: relative;
-            left: 140px;
-            top: 30px;
-        }
-
-        .other {
-            display: inline;
-            position: relative;
-            left: 70px;
-            top: 70px;
-        }
-
-
-
-
 
         li {
             display: block;
@@ -226,35 +181,10 @@
                 width: 100%;
             }
 
-        .dropdown a {
-            color: black;
-            text-decoration: none;
-            letter-spacing: 2px;
-            font-weight: normal;
-        }
-
-        .dropdown li
-        {
-            display: inline;
-            margin-right: 25px;
-        }
-
-        .clothing {
-            display: inline;
-            position: relative;
-            left: 300px;
-            bottom: 60px;
-        }
-
-            .clothing a {
-                color: black;
-                text-decoration: none;
-                letter-spacing: 2.5px;
-            }
-
         .dropdown {
-            position: relative;
-            left: 245px;
+            text-align: center;
+            width: 100%;
+            padding-left: 0px;
         }
     </style>
 </head>
@@ -263,65 +193,54 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <h2 class="Logo">AuroraFashion</h2>
-                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                <div class="collapse navbar-collapse d-flex justify-content-end first" id="navbarNav">
                     <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
+
                             <li class="nav-item active home">
                                 <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
+
                             @if (!this.User.Identity.IsAuthenticated)
                             {
-                        <li class="nav-item active login">
-                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                        </li>
+                                <li class="nav-item active login">
+                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                </li>
 
-                                        <li class="nav-item active register">
-                                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Don't have an account? Regiser here!</a>
-                                        </li>
-}
+                                <li class="nav-item active register">
+                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Don't have an account? Regiser here!</a>
+                                </li>
+                            }
                             @if (this.User.IsInRole("Admin"))
                             {
 
-                        <li class="nav-item active create">
-                            <a class="nav-link" asp-controller="Products" asp-action="Create">Create Product</a>
-                        </li>
+                                <li class="nav-item active create">
+                                    <a class="nav-link" asp-controller="Products" asp-action="Create">Create Product</a>
+                                </li>
 
-                                        <li class="nav-item active allOrders">
-                                            <a class="nav-link" asp-controller="Orders" asp-action="All">All Orders</a>
-                                        </li>
-}
+                                <li class="nav-item active allOrders">
+                                    <a class="nav-link" asp-controller="Orders" asp-action="All">All Orders</a>
+                                </li>
+                            }
                             @if (User.Identity.IsAuthenticated)
                             {
-                        @*<li class="nav-item active clothing">
-                            <a class="nav-link alabel clothinghover" href="#">clothing</a>
-                            <section class="submen">
-                                <ul>
-                                    <li class="coats"><a asp-controller="home" asp-action="categorize" asp-route-categoryname="coat">coats</a></li>
-                                    <li class="puffers"><a asp-controller="home" asp-action="categorize" asp-route-categoryname="puffer">puffers</a></li>
-                                    <li class="jackets"><a asp-controller="home" asp-action="categorize" asp-route-categoryname="jacket">jackets</a></li>
-                                    <li class="jeans"><a asp-controller="home" asp-action="categorize" asp-route-categoryname="jeans">jeans</a></li">
-                                    <li class="tshirts"><a asp-controller="home" asp-action="categorize" asp-route-categoryname="t-shirt">t-shirts</a></li>
-                                    <li class="other"><a asp-controller="home" asp-action="categorize" asp-route-categoryname="other">other</a></li>
-                                </ul>
-                            </section>
-                        </li>*@
+                                <li class="nav-item active clothing">
+                                    <a class="nav-link" href="#">Clothing</a>
+                                    <ul class="dropdown">
+                                        <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Coat">Coats</a></li>
+                                        <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Puffer">Puffers</a></li>
+                                        <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jacket">Jackets</a></li>
+                                        <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jeans">Jeans</a></li>
+                                        <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="T-shirt">T-shirts</a></li>
+                                        <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Other">Other</a></li>
+                                    </ul>
+                                </li>
 
-                                        <li class="nav-item active clothing">
-                                            <a class="nav-link" href="#">Clothing</a>
-                                            <ul class="dropdown">
-                                                <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Coat">Coats</a></li>
-                                                <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Puffer">Puffers</a></li>
-                                                <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jacket">Jackets</a></li>
-                                                <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jeans">Jeans</a></li>
-                                                <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="T-shirt">T-shirts</a></li>
-                                                <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Other">Other</a></li>
-                                            </ul>
-                                        </li>
+                                <li class="nav-item active logout">
+                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
+                                </li>
 
-                                                        <li class="nav-item active logout">
-                                                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
-                                                        </li>
-}
+                            }
 
 </div>
                 </div>

@@ -58,7 +58,8 @@ namespace AS.Web.Controllers
                         Name = product.Name,
                         Price = product.Price,
                         Description = product.Description,
-                        CategoryName = categoryName
+                        CategoryName = categoryName,
+                        ImageUrl = product.ImageUrl
                     })
                     .ToListAsync();
 
