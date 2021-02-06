@@ -11,7 +11,6 @@
     <title>@ViewData["Title"] - Aurora Shop</title>
 
     <style>
-
         .Logo {
             font-family: 'Big Shoulders Display', cursive;
         }
@@ -170,13 +169,12 @@
                                     <a class="nav-link" href="#">Clothing</a>
                                     <section class="subMen">
                                         <ul>
-                                            <li><a href="#">T-shirts</a></li>
-                                            <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">Sweetshirts</a></li>
-                                            <li><a href="#">Costumes</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Underwear</a></li>
-                                            <li><a href="#">Shoes</a></li>
+                                            <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Coat">Coats</a></li>
+                                            <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Puffer">Puffers</a></li>
+                                            <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jacket">Jackets</a></li>
+                                            <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jeans">Jeans</a></li>
+                                            <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="T-shirt">T-shirts</a></li>
+                                            <li><a asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Other">Other</a></li>
                                         </ul>
                                     </section>
                                 </li>
@@ -187,7 +185,7 @@
 
                             }
 
-</div>
+                    </div>
                 </div>
             </nav>
         </header>

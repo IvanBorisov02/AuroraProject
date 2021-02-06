@@ -32,6 +32,7 @@ namespace AS.Services
             Category category = await this.db.Categories.SingleOrDefaultAsync(category => category.Name == productServiceModel.CategoryServiceModel.Name);
 
             product.Category = category;
+            product.CategoryId = product.Category.Id;
 
             product.Id = Guid.NewGuid().ToString();
 
@@ -63,6 +64,15 @@ namespace AS.Services
         public async Task<bool> DeleteProduct(string id)
         {
             Product product = await this.db.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
+
+            //cascading
+            foreach (var order in this.db.Orders)
+            {
+                if (order.ProductId == product.Id)
+                {
+                    db.Orders.Remove(order);
+                }
+            }
 
             bool result = this.db.Remove(product) != null;
             await this.db.SaveChangesAsync();

@@ -1,4 +1,4 @@
-﻿@model List<ProductHomeViewModel>
+﻿@model List<ProductCategorizedViewModel>
 
 <div class="mt-3 mb-5">
     <div class="container-fluid text-center">
@@ -6,13 +6,24 @@
         @if (this.User.IsInRole("Admin"))
         {
             <h4>Enjoy your work today!</h4>
+            @if (Model != null)
+            {
+            <h4>Here you can see all @Model.First().CategoryName products</h4>
+            }
         }
         else
         {
-            <h4>Feel free to view and order any of our products.</h4>
+            @if (Model != null)
+            {
+            <h4>Here you can see all @Model.First().CategoryName products</h4>
+            }
+            else
+            {
+                <h4>We are sorry, our @Model.First().CategoryName products are sold</h4>
+            }
         }
     </div>
-    <hr class="hr-2 bg-dark" />
+<hr class="hr-2 bg-dark" />
     <div class="container-fluid product-holder">
         <div class="container-fluid product-holder">
             @if (Model != null)

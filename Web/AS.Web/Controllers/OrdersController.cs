@@ -13,6 +13,7 @@ using AS.Web.Models;
 using AS.Services;
 using AS.Services.Models;
 using AutoMapperTestConfiguration;
+using Stripe;
 
 namespace AS.Web.Controllers
 {
@@ -27,12 +28,12 @@ namespace AS.Web.Controllers
             this.ordersService = ordersService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Order(string id)
-        {
+        [HttpPost]
+        public async Task<IActionResult> Order(string id, string stripeEmail, string stripeToken)
+        {           
             string ordererId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            await this.ordersService.Order(id, ordererId);
+            await this.ordersService.Order(id, ordererId, stripeEmail, stripeToken);
 
             return Redirect($"/Products/Details/{id}");
         }
@@ -41,12 +42,12 @@ namespace AS.Web.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AllAsync()
         {
-
             List<OrderAllViewModel> models = new List<OrderAllViewModel>();
             List<OrderServiceModel> serviceModels = await this.ordersService.AllOrders();
 
             foreach (var serviceModel in serviceModels)
             {
+               
                 models.Add(serviceModel.To<OrderAllViewModel>());
             }
 

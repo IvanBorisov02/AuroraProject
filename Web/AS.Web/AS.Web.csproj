@@ -15,9 +15,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Stripe.net" Version="39.34.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\StripeConfig\StripeConfig.csproj" />
     <ProjectReference Include="..\..\Data\AS.Data.Models\AS.Data.Models.csproj" />
     <ProjectReference Include="..\..\Data\AS.Data\AS.Data.csproj" />
     <ProjectReference Include="..\..\Service\AS.Services\AS.Services.csproj" />

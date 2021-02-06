@@ -1,65 +1,63 @@
 ﻿@model List<OrderAllViewModel>
 
-<head>
-    <style>
+    <head>
+        <style>
+            h1.text-center {
+                position: relative;
+                left: 600px;
+            }
 
-        h1.text-center {
-            position: relative;
-            left: 600px;
-        }
+            .begin {
+                position: relative;
+                left: 50px;
+            }
 
-        .begin {
-            position: relative;
-            left: 50px;
-        }
+            .order_id {
+                position: relative;
+                left: 150px;
+            }
 
-        .order_id {
-            position: relative;
-            left: 150px;
-        }
+            .orderer {
+                position: relative;
+                left: 300px;
+            }
 
-        .orderer {
-            position: relative;
-            left: 300px;
-        }
+            .product {
+                position: relative;
+                left: 400px;
+            }
 
-        .product {
-            position: relative;
-            left: 400px;
-        }
+            .ordered_on {
+                position: relative;
+                left: 500px;
+            }
 
-        .ordered_on {
-            position: relative;
-            left: 500px;
-        }
+            .begin2 {
+                position: relative;
+                left: 50px;
+            }
 
-        .begin2 {
-            position: relative;
-            left: 50px;
-        }
+            .order_id2 {
+                position: relative;
+                left: 150px;
+            }
 
-        .order_id2 {
-            position: relative;
-            left: 150px;
-        }
+            .orderer2 {
+                position: relative;
+                left: 300px;
+            }
 
-        .orderer2 {
-            position: relative;
-            left: 300px;
-        }
+            .product2 {
+                position: relative;
+                left: 400px;
+            }
 
-        .product2 {
-            position: relative;
-            left: 400px;
-        }
-
-        .ordered_on2 {
-            position: relative;
-            left: 500px;
-        }
-
-    </style>
-</head>
+            .ordered_on2 {
+                position: relative;
+                left: 500px;
+            }
+        </style>
+    </head>
 
 <div class="mt-3 mb-5">
     <h1 class="text-center">All Orders</h1>
@@ -78,13 +76,13 @@
 
             @for (int i = 0; i < Model.Count; i++)
             {
-                <tr class="row">
-                    <th class="col-md-1 begin2">@(i + 1)</th>
-                    <td class="col-md-4 order_id2">@Model[i].Id</td>
-                    <td class="col-md-2 orderer2">@Model[i].Orderer</td>
-                    <td class="col-md-2 product2">@Model[i].Product</td>
-                    <td class="col-md-2 ordered_on2">@Model[i].OrderedOn</td>
-                </tr>
+            <tr class="row">
+                <th class="col-md-1 begin2">@(i + 1)</th>
+                <td class="col-md-4 order_id2">@Model[i].Id</td>
+                <td class="col-md-2 orderer2">@Model[i].Orderer</td>
+                <td class="col-md-2 product2">@Model[i].Product</td>
+                <td class="col-md-2 ordered_on2">@Model[i].OrderedOn</td>
+            </tr>
             }
         </tbody>
     </table>
