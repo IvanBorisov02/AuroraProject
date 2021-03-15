@@ -1,0 +1,141 @@
+﻿@model List<ProductCategorizedViewModel>
+
+<head>
+
+    <style>
+
+        .first h2 {
+            display: inline;
+            position: relative;
+            left: 500px;
+            color: black;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        .first h4.enjoy {
+            display: inline;
+            position: relative;
+            left: 170px;
+            top: 50px;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        .first h4.products {
+            position: relative;
+            top: 110px;
+            right: 100px;
+            color: black;
+            font-weight: normal;
+            letter-spacing: 3px;
+            display: inline;
+        }
+
+
+        div.gallery {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 180px;
+            height: 300px;
+        }
+
+            div.gallery:hover {
+                border: 1px solid #777;
+            }
+
+            div.gallery img {
+                width: 100%;
+                height: 50%;
+            }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+        }
+
+        /*.imageP {
+            width: 300px;
+            height: 200px;
+        }*/
+
+        .all {
+            position: relative;
+            top: 140px;
+            left: 100px;
+        }
+
+        .products {
+            display: inline;
+            position: relative;
+            top: 100px;
+            left: 160px;
+            /* text-decoration: none; */
+            /* font-weight: normal; */
+            letter-spacing: .1em;
+            font-weight: bold;
+            text-decoration: overline;
+        }
+
+        .gallery h5 {
+            text-align: center;
+            color: black;
+            font-size: 15px;
+            letter-spacing: 1.5px;
+        }
+
+        .gallery h6 {
+            text-align: center;
+            color: black;
+            font-size: 15px;
+            letter-spacing: 1.5px;
+        }
+    </style>
+
+
+</head>
+
+
+<div class="mt-3 mb-5">
+    <div class="container-fluid text-center first">
+        <h2>Welcome, @this.User.Identity.Name!</h2>
+        @if (this.User.IsInRole("Admin"))
+        {
+<h4 class="enjoy">Enjoy your work today!</h4>
+                @if (Model != null)
+                {
+<h4 class="products allProducts">Here you can see all @Model.First().CategoryName products</h4>} }
+                            else
+                            {
+                @if (Model != null)
+                {
+<h4 class="products">Here you can see all @Model.First().CategoryName products</h4> }
+                else
+                {
+<h4>We are sorry, our @Model.First().CategoryName products are sold</h4>}}
+    </div>
+    <div class="container-fluid product-holder">
+        <div class="container-fluid product-holder all">
+            @if (Model != null)
+            {
+                @for (int i = 0; i < Model.Count; i += 5)
+                {
+                    <div class="row d-flex justify-content-around mt-4">
+
+                        @for (int j = 0; j < 5 && (i + j) < Model.Count; j++)
+                        {
+                            <a asp-controller="Products" asp-action="Details" asp-route-id="@Model[i + j].Id" class="product col-md-2 rounded-top rounded-bottom px-3">
+                                <div class="gallery">
+                                    <img src="~/Images/@Model[i+j].ImageUrl" width="300" height="200" />
+                                    <h5 class="text-center mt-3">@Model[i + j].Name</h5>
+                                    <h6 class="text-center text-black-50 mb-3">$@Model[i + j].Price.ToString("F2")</h6>
+
+                                </div>
+                            </a>}
+
+                    </div>          }}
+
+        </div>
+    </div>
+</div>
