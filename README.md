@@ -1,7 +1,8 @@
 # AuroraProject
-=======================
+====
 Aurora Fashion
-=======================
+===
+
 
 One very simple shopping site. !All rights reserved!
 
