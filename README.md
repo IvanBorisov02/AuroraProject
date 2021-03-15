@@ -1,7 +1,6 @@
 # AuroraProject
 ====
-Aurora Fashion
-===
+Aurora Fashion ===
 
 
 One very simple shopping site. !All rights reserved!
