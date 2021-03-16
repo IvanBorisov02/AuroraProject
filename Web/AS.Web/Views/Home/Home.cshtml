@@ -1,4 +1,5 @@
-﻿@model List<ProductHomeViewModel>
+﻿@using AS.Web.Models
+@model ProductHomeViewModel
 
 
 <head>
@@ -85,32 +86,37 @@
         <h2>Welcome, @this.User.Identity.Name!</h2>
         @if (this.User.IsInRole("Admin"))
         {
-<h4 class="admin">Enjoy your work today!</h4> }
-else
-{
-<h4 class="nonAdmin">Feel free to view and order any of our products.</h4>}
+            <h4 class="admin">Enjoy your work today!</h4> }
+        else
+        {
+            <h4 class="nonAdmin">Feel free to view and order any of our products.</h4>}
     </div>
     <div class="container-fluid product-holder">
         <div class="container-fluid product-holder all">
             @if (Model != null)
             {
-@for (int i = 0; i < Model.Count; i += 5)
-{
-<div class="row d-flex justify-content-around mt-4">
-
-    @for (int j = 0; j < 5 && (i + j) < Model.Count; j++)
-    {
-<a asp-controller="Products" asp-action="Details" asp-route-id="@Model[i + j].Id" class="product col-md-2 rounded-top rounded-bottom px-3">
-        <div class="gallery">
-            <img src="~/Images/@Model[i+j].ImageUrl" width="300" height="200" />
-            <h5 class="text-center mt-3">@Model[i + j].Name</h5>
-            <h6 class="text-center text-black-50 mb-3">$@Model[i + j].Price.ToString("F2")</h6>
-
-        </div>
-</a>}
-
-</div>          }}
+                @foreach (ProductViewModel product in Model.Products)
+                {
+                    <div class="row d-flex justify-content-around mt-4">
+                        <a asp-controller="Products" asp-action="Details" asp-route-id="@product.Id" class="product col-md-2 rounded-top rounded-bottom px-3">
+                            <div class="gallery">
+                                <img src="~/Images/@product.ImageUrl" width="300" height="200" />
+                                <h5 class="text-center mt-3">@product.Name</h5>
+                                <h6 class="text-center text-black-50 mb-3">$@product.Price.ToString("F2")</h6>
+                            </div>
+                        </a>                        
+                    </div>
+                }
+            }
 
         </div>
-    </div>
+    </div>   
 </div>
+<ul class="pagination">
+    @for (var i = 1; i <= Model.Pager.PagesCount; i++)
+    {
+        <li class="page-item @(i == Model.Pager.CurrentPage ? "active" : "")">
+            <a asp-route-Pager.CurrentPage="@i" class="page-link">@i</a>
+        </li>
+    }
+</ul>

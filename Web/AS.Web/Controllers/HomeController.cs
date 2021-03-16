@@ -1,5 +1,6 @@
 ﻿using AS.Data;
 using AS.Web.Models;
+using AS.Web.Models.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -13,6 +14,7 @@ namespace AS.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private const int PageSize = 5;
         private readonly ILogger<HomeController> _logger;
         private readonly ASDbContext _context;
 
@@ -23,13 +25,15 @@ namespace AS.Web.Controllers
         }
 
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(ProductHomeViewModel model)
         {
+            model.Pager ??= new PagerViewModel();
+            model.Pager.CurrentPage = model.Pager.CurrentPage <= 0 ? 1 : model.Pager.CurrentPage;
+
             if (this.User.Identity.IsAuthenticated)
             {
-                List<ProductHomeViewModel> models = await this._context.Products
-                    .Select(product => new ProductHomeViewModel
-                    {
+                List<ProductViewModel> models = await _context.Products.Skip((model.Pager.CurrentPage - 1) * PageSize).Take(PageSize).Select(product => new ProductViewModel()
+                {
                         Id = product.Id,
                         Name = product.Name,
                         Price = product.Price,
@@ -38,14 +42,20 @@ namespace AS.Web.Controllers
                     })
                     .ToListAsync();
 
-                return this.View("Home", models);
+                model.Products = models;
+                model.Pager.PagesCount = (int)Math.Ceiling(await _context.Products.CountAsync() / (double)PageSize);
+
+                return this.View("Home", model);
             }
 
             return View();
         }
 
-        public async Task<IActionResult> Categorize(string categoryName)
+        public async Task<IActionResult> Categorize(string categoryName, ProductCategorizedHomeViewModel model)
         {
+            model.Pager ??= new PagerViewModel();
+            model.Pager.CurrentPage = model.Pager.CurrentPage <= 0 ? 1 : model.Pager.CurrentPage;
+
             List<ProductCategorizedViewModel> models = new List<ProductCategorizedViewModel>();
 
             if (this.User.Identity.IsAuthenticated)
@@ -63,15 +73,18 @@ namespace AS.Web.Controllers
                     })
                     .ToListAsync();
 
+               
 
                 if (models.Count == 0)
                 {
-                    ProductEmptyViewModel model = new ProductEmptyViewModel { CategoryName = categoryName };
+                    ProductEmptyViewModel error = new ProductEmptyViewModel { CategoryName = categoryName };
 
-                    return this.View("Empty", model);
+                    return this.View("Empty", error);
                 }
 
-                return this.View("Categorized", models);
+                model.Products = models;
+                model.Pager.PagesCount = (int)Math.Ceiling( models.Count / (double)PageSize);
+                return this.View("Categorized", model);
             }
 
             return View();

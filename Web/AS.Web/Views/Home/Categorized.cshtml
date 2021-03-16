@@ -1,4 +1,5 @@
-﻿@model List<ProductCategorizedViewModel>
+﻿@using AS.Web.Models
+@model ProductCategorizedHomeViewModel
 
 <head>
 
@@ -105,37 +106,52 @@
 <h4 class="enjoy">Enjoy your work today!</h4>
                 @if (Model != null)
                 {
-<h4 class="products allProducts">Here you can see all @Model.First().CategoryName products</h4>} }
+<h4 class="products allProducts">Here you can see all @Model.Products.First().CategoryName products</h4>} }
                             else
                             {
                 @if (Model != null)
                 {
-<h4 class="products">Here you can see all @Model.First().CategoryName products</h4> }
+    <h4 class="products">Here you can see all @Model.Products.First().CategoryName products</h4> }
                 else
                 {
-<h4>We are sorry, our @Model.First().CategoryName products are sold</h4>}}
+    <h4>We are sorry, our@Model.Products.First().CategoryName products are sold</h4>}}
     </div>
-    <div class="container-fluid product-holder">
-        <div class="container-fluid product-holder all">
-            @if (Model != null)
+    <div class="mt-3 mb-5">
+        <div class="container-fluid text-center begin">
+            <h2>Welcome, @this.User.Identity.Name!</h2>
+            @if (this.User.IsInRole("Admin"))
             {
-                @for (int i = 0; i < Model.Count; i += 5)
+                <h4 class="admin">Enjoy your work today!</h4> }
+            else
+            {
+                <h4 class="nonAdmin">Feel free to view and order any of our products.</h4>}
+        </div>
+        <div class="container-fluid product-holder">
+            <div class="container-fluid product-holder all">
+                @if (Model != null)
                 {
-                    <div class="row d-flex justify-content-around mt-4">
-
-                        @for (int j = 0; j < 5 && (i + j) < Model.Count; j++)
-                        {
-                            <a asp-controller="Products" asp-action="Details" asp-route-id="@Model[i + j].Id" class="product col-md-2 rounded-top rounded-bottom px-3">
+                    @foreach (ProductCategorizedViewModel product in Model.Products)
+                    {
+                        <div class="row d-flex justify-content-around mt-4">
+                            <a asp-controller="Products" asp-action="Details" asp-route-id="@product.Id" class="product col-md-2 rounded-top rounded-bottom px-3">
                                 <div class="gallery">
-                                    <img src="~/Images/@Model[i+j].ImageUrl" width="300" height="200" />
-                                    <h5 class="text-center mt-3">@Model[i + j].Name</h5>
-                                    <h6 class="text-center text-black-50 mb-3">$@Model[i + j].Price.ToString("F2")</h6>
-
+                                    <img src="~/Images/@product.ImageUrl" width="300" height="200" />
+                                    <h5 class="text-center mt-3">@product.Name</h5>
+                                    <h6 class="text-center text-black-50 mb-3">$@product.Price.ToString("F2")</h6>
                                 </div>
-                            </a>}
+                            </a>
+                        </div>
+                    }
+                }
 
-                    </div>          }}
-
+            </div>
         </div>
     </div>
-</div>
+<ul class="pagination">
+    @for (var i = 1; i <= Model.Pager.PagesCount; i++)
+    {
+        <li class="page-item @(i == Model.Pager.CurrentPage ? "active" : "")">
+            <a asp-route-Pager.CurrentPage="@i" class="page-link">@i</a>
+        </li>
+    }
+</ul>
