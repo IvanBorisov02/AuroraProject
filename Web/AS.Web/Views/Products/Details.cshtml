@@ -6,6 +6,39 @@
 
     <style>
 
+        .price label {
+            position: relative;
+            left: 550px;
+            top: 130px;
+            font-size: 19px;
+            letter-spacing: .15em;
+        }
+
+        .price input {
+            position: relative;
+            left: 480px;
+            top: 180px;
+            margin-top: 2px;
+            padding-top: 1px;
+            padding-bottom: 2px;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            border: 0;
+            border: 1px solid #CCC;
+            border-radius: 10px;
+            max-width: 100%;
+            width: 500px;
+            font-family: CriqueGrotesk,Helvetica,Arial,sans-serif;
+            font-weight: 400;
+            outline: none;
+            background: rgba(0,0,0,0);
+            color: inherit;
+            padding: 3px 30px;
+            -webkit-transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+            -webkit-appearance: none;
+        }
+
         .begin > h1 {
             display: inline;
             position: relative;
@@ -175,14 +208,14 @@
     <div class="product-description-holder">
         @if (Model.Description == null)
         {
-<p class="text-center mt-4">
-    No description
-</p> }
-            else
-            {
-<p class="text-center mt-4 has">
-    @Model.Description
-</p>            }
+            <p class="text-center mt-4">
+                No description
+            </p> }
+        else
+        {
+            <p class="text-center mt-4 has">
+                @Model.Description
+            </p>        }
 
     </div>
     <div class="product-description-holder img">
@@ -191,6 +224,11 @@
     <div class="product-action-holder mt-4 half-width mx-auto d-flex justify-content-around">
         @*<a asp-controller="Orders" asp-action="Order" asp-route-id="@Model.Id" class="btn">Order</a>*@
         <form asp-controller="Orders" asp-action="Order" asp-route-id="@Model.Id" method="POST">
+            <div class="form-group price">
+                <label asp-for="OrderedCount"></label>
+                <input type="number" class="form-control" id="orderedcount" placeholder="Count..." asp-for="OrderedCount" min="1">
+                <span asp-validation-for="OrderedCount" class="text-danger"></span>
+            </div>
             <script src="https://checkout.stripe.com/v2/checkout.js"
                     class="stripe-button"
                     data-key="@Stripe.Value.PublishableKey"
@@ -208,8 +246,8 @@
         </form>
         @if (this.User.IsInRole("Admin"))
         {
-                <a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" class="btn edit">Edit</a>
-                <a asp-controller="Products" asp-action="Delete" asp-route-id="@Model.Id" class="btn delete">Delete</a>
+            <a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" class="btn edit">Edit</a>
+            <a asp-controller="Products" asp-action="Delete" asp-route-id="@Model.Id" class="btn delete">Delete</a>
         }
     </div>
 </div>

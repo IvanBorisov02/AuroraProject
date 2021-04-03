@@ -45,7 +45,7 @@ namespace AS.Services
         }
 
 
-        public async Task<bool> Order(string id, string ordererId, string stripeEmail, string stripeToken)
+        public async Task<bool> Order(string id, string ordererId, string stripeEmail, string stripeToken, int itemCount)
         {
 
             var customers = new CustomerService();
@@ -63,7 +63,7 @@ namespace AS.Services
 
             var charge = charges.Create(new ChargeCreateOptions
             {
-                Amount = (long)product.Price * 100,
+                Amount = (long)product.Price * 100 * itemCount,
                 Currency = "usd",
                 Customer = customer.Id
             });

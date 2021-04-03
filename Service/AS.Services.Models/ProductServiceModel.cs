@@ -18,6 +18,8 @@ namespace AS.Services.Models
 
         public CategoryServiceModel CategoryServiceModel { get; set; }
 
+        public GenderTypeServiceModel GenderTypeServiceModel { get; set; }
+
         public string ImageUrl { get; set; }
     }
 }

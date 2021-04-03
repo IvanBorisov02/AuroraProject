@@ -12,6 +12,7 @@ namespace AS.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<GenderType> GenderTypes { get; set; }
         public ASDbContext(DbContextOptions<ASDbContext> options)
             : base(options)
         {
@@ -21,39 +22,22 @@ namespace AS.Data
         {              
             base.OnModelCreating(builder);
 
-            string ADMIN_ID = "02174cf0–9412–4cfe-afbf-59f706d72cf6";
-            string ROLE_ID = "341743f0-asd2–42de-afbf-59kmkkmk72cf6";
-
-            //seed admin role
-            builder.Entity<IdentityRole>().HasData(new IdentityRole
+            builder.Entity<GenderType>().HasData(new GenderType
             {
-                Name = "Admin",
-                NormalizedName = "Admin",
-                Id = ROLE_ID,
-                ConcurrencyStamp = ROLE_ID
+                Id = Guid.NewGuid().ToString(),
+                Name = "Woman"
             });
 
-            //create user
-            var appUser = new ASUser
+            builder.Entity<GenderType>().HasData(new GenderType
             {
-                Id = ADMIN_ID,
-                Email = "admin@admin.admin",
-                EmailConfirmed = true,
-                UserName = "admin@admin.admin"
-            };
+                Id = Guid.NewGuid().ToString(),
+                Name = "Man"
+            });
 
-            //set user password
-            PasswordHasher<ASUser> ph = new PasswordHasher<ASUser>();
-            appUser.PasswordHash = ph.HashPassword(appUser, "admin1234");
-
-            //seed user
-            builder.Entity<ASUser>().HasData(appUser);
-
-            //set user role to admin
-            builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            builder.Entity<GenderType>().HasData(new GenderType
             {
-                RoleId = ROLE_ID,
-                UserId = ADMIN_ID
+                Id = Guid.NewGuid().ToString(),
+                Name = "Kids"
             });
 
             builder.Entity<Category>().HasData(new Category

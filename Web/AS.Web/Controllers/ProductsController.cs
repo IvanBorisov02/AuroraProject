@@ -86,7 +86,9 @@ namespace AS.Web.Controllers
                 Name = product.Name,
                 Description = product.Description,
                 Category = product.Category.Name,
-                ImageUrl = product.ImageUrl
+                ImageUrl = product.ImageUrl,
+                GenderType = product.GenderType.Name,
+                Quantity = product.Quantity
             };
 
             return View(productEditViewModel);

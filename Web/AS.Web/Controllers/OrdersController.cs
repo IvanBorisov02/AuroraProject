@@ -29,11 +29,11 @@ namespace AS.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Order(string id, string stripeEmail, string stripeToken)
+        public async Task<IActionResult> Order(string id, string stripeEmail, string stripeToken, ProductDetailsViewModel model)
         {           
             string ordererId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            await this.ordersService.Order(id, ordererId, stripeEmail, stripeToken);
+            await this.ordersService.Order(id, ordererId, stripeEmail, stripeToken, model.OrderedCount);
 
             return Redirect($"/Products/Details/{id}");
         }

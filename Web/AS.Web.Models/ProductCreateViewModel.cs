@@ -18,11 +18,17 @@ namespace AS.Web.Models
         
         public IFormFile Image { get; set; }
 
+        public int Quantity { get; set; }
+
+        public string GenderType { get; set; }
+
         public void CreateMappings(IMapperConfigurationExpression mapperConfig)
         {
             mapperConfig.
               CreateMap<ProductCreateViewModel, ProductServiceModel>()
-              .ForMember(dest => dest.CategoryServiceModel, opts => opts.MapFrom(src => new CategoryServiceModel { Name = src.Category }));
+              .ForMember(dest => dest.CategoryServiceModel, opts => opts.MapFrom(src => new CategoryServiceModel { Name = src.Category }))
+              .ForMember(dest => dest.GenderTypeServiceModel, opts => opts.MapFrom(src => new GenderTypeServiceModel { Name = src.GenderType}));
+           
         }
     }
 }

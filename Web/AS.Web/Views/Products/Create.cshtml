@@ -257,10 +257,29 @@
                 <label class="form-check-label" for="other">Other</label>
             </div>
         </div>
+        <div class="product-type-holder mt-4 d-flex justify-content-around">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="genderType" id="man" value="Man" asp-for="@Model.GenderType" enabled>
+                <label class="form-check-label" for="man">Man</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="genderType" id="woman" value="Woman" asp-for="@Model.GenderType" enabled>
+                <label class="form-check-label" for="woman">Woman</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="genderType" id="kids" value="Kids" asp-for="@Model.GenderType" enabled>
+                <label class="form-check-label" for="kids">Kids</label>
+            </div>
+        </div>
         <div class="form-group image">
             <label asp-for="Image" class="control-label"></label>
             <input class="form-control" id="image" asp-for="Image">
             <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+        <div class="form-group price">
+            <label asp-for="Quantity"></label>
+            <input type="number" class="form-control" id="quantity" placeholder="Count..." asp-for="Quantity" min="1">
+            <span asp-validation-for="Price" class="text-danger"></span>
         </div>
         <div class="button-holder mt-2 d-flex justify-content-center button">
             <button type="submit" class="btn">Create</button>

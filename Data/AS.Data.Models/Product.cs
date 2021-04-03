@@ -16,5 +16,12 @@ namespace AS.Data.Models
         public Category Category { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public int Quantity { get; set; }
+
+        public string GenderTypeId { get; set; }
+
+        public GenderType GenderType { get; set; }
+
     }
 }

@@ -29,10 +29,17 @@ namespace AS.Services
 
 
             Product product = productServiceModel.To<Product>();
+
             Category category = await this.db.Categories.SingleOrDefaultAsync(category => category.Name == productServiceModel.CategoryServiceModel.Name);
+
+            GenderType genderType = await this.db.GenderTypes.SingleOrDefaultAsync(genderType => genderType.Name == productServiceModel.GenderTypeServiceModel.Name);
+
 
             product.Category = category;
             product.CategoryId = product.Category.Id;
+
+            product.GenderType = genderType;
+            product.GenderTypeId = product.GenderType.Id;
 
             product.Id = Guid.NewGuid().ToString();
 
