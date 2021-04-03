@@ -147,11 +147,14 @@
             </div>
         </div>
     </div>
-<ul class="pagination">
-    @for (var i = 1; i <= Model.Pager.PagesCount; i++)
-    {
-        <li class="page-item @(i == Model.Pager.CurrentPage ? "active" : "")">
-            <a asp-route-Pager.CurrentPage="@i" class="page-link">@i</a>
-        </li>
-    }
-</ul>
+@if (Model.Pager.PagesCount > 1)
+{
+    <ul class="pagination">
+        @for (var i = 1; i <= Model.Pager.PagesCount; i++)
+        {
+            <li class="page-item @(i == Model.Pager.CurrentPage ? "active" : "")">
+                <a asp-route-Pager.CurrentPage="@i" class="page-link">@i</a>
+            </li>
+        }
+    </ul>
+}
