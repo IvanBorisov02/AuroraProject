@@ -17,10 +17,12 @@ namespace AS.Services
     public class OrdersService : IOrdersService
     {
         private readonly ASDbContext db;
+        private readonly IProductsService productsService;
 
-        public OrdersService(ASDbContext db)
+        public OrdersService(ASDbContext db, IProductsService productsService)
         {
             this.db = db;
+            this.productsService = productsService;
         }
 
         public async Task<List<OrderServiceModel>> AllOrders()
@@ -55,6 +57,11 @@ namespace AS.Services
               .Include(product => product.Category)
               .SingleOrDefaultAsync(product => product.Id == id);
 
+            if (product.Quantity <= 0)
+            {
+                throw new ArgumentException("We don't have such amount of this product");
+            }
+
             var customer = customers.Create(new CustomerCreateOptions
             {
                 Email = stripeEmail,
@@ -83,6 +90,8 @@ namespace AS.Services
                 Product = product,
                 Orderer = aSUser
             };
+
+            await productsService.DecreaseQuantity(product.Id, itemCount);
 
             bool result = await this.db.AddAsync(order) != null;
 

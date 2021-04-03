@@ -86,5 +86,23 @@ namespace AS.Services
 
             return result;
         }
+
+        public async Task<bool> DecreaseQuantity(string id, int amount)
+        {
+
+            Product product = await this.db.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
+
+            if (product.Quantity < amount)
+            {
+                throw new ArgumentException("There are no enough products in stock");
+            }
+
+            product.Quantity -= amount;
+            this.db.Update(product);
+
+            int result = await this.db.SaveChangesAsync();
+
+            return result > 0;
+        }
     }
 }
