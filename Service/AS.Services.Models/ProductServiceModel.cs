@@ -21,5 +21,7 @@ namespace AS.Services.Models
         public GenderTypeServiceModel GenderTypeServiceModel { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public int Quantity { get; set; }
     }
 }
