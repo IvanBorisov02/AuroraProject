@@ -55,7 +55,7 @@
 
         .price input {
             position: relative;
-            left: 480px;
+            left: 470px;
             top: 180px;
             margin-top: 2px;
             padding-top: 1px;
@@ -78,44 +78,49 @@
             -webkit-appearance: none;
         }
 
-        .description label {
+        .description {
             position: relative;
-            left: 550px;
-            top: 220px;
-            font-size: 19px;
-            letter-spacing: .15em;
+            top: 160px;
         }
 
-        .description input {
-            position: relative;
-            left: 420px;
-            top: 270px;
-            margin-top: 2px;
-            padding-top: 1px;
-            padding-bottom: 2px;
-            font-size: 1.4rem;
-            line-height: 1.4;
-            border: 0;
-            border: 1px solid #CCC;
-            border-radius: 10px;
-            max-width: 100%;
-            width: 500px;
-            font-family: CriqueGrotesk,Helvetica,Arial,sans-serif;
-            font-weight: 400;
-            outline: none;
-            background: rgba(0,0,0,0);
-            color: inherit;
-            padding: 3px 30px;
-            -webkit-transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
-            transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
-            -webkit-appearance: none;
-        }
+            .description label {
+                position: relative;
+                left: 550px;
+                top: 220px;
+                font-size: 19px;
+                letter-spacing: .15em;
+            }
+
+            .description input {
+                position: relative;
+                left: 420px;
+                top: 270px;
+                margin-top: 2px;
+                padding-top: 1px;
+                padding-bottom: 2px;
+                font-size: 1.4rem;
+                line-height: 1.4;
+                border: 0;
+                border: 1px solid #CCC;
+                border-radius: 10px;
+                max-width: 100%;
+                width: 500px;
+                font-family: CriqueGrotesk,Helvetica,Arial,sans-serif;
+                font-weight: 400;
+                outline: none;
+                background: rgba(0,0,0,0);
+                color: inherit;
+                padding: 3px 30px;
+                -webkit-transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+                transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+                -webkit-appearance: none;
+            }
 
         .category {
             display: inline;
             position: relative;
             left: 550px;
-            top: 300px;
+            top: 480px;
             font-size: 19px;
             letter-spacing: .15em;
             font-weight: normal;
@@ -163,24 +168,29 @@
             left: 800px;
         }
 
-        .image label {
+        .image {
             position: relative;
-            top: 380px;
-            left: 550px;
-            font-size: 19px;
-            letter-spacing: .15em;
+            top: 170px;
         }
 
-        .image input {
-            position: relative;
-            top: 420px;
-            left: 480px;
-        }
+            .image label {
+                position: relative;
+                top: 380px;
+                left: 550px;
+                font-size: 19px;
+                letter-spacing: .15em;
+            }
+
+            .image input {
+                position: relative;
+                top: 420px;
+                left: 480px;
+            }
 
         .button button {
             position: relative;
             top: 499px;
-            left: 800px;
+            left: 1000px;
             -moz-user-select: "none";
             -ms-user-select: "none";
             -webkit-user-select: "none";
@@ -209,6 +219,84 @@
             cursor: pointer;
             margin-bottom: 500px;
         }
+
+        .gender {
+            position: relative;
+            left: 100px;
+            top: 280px;
+            display: inline;
+        }
+
+            .gender label {
+                letter-spacing: .15em;
+                font-weight: 500;
+            }
+
+        .man {
+            display: inline;
+            position: relative;
+            left: 540px;
+            bottom: 150px;
+        }
+
+        .woman {
+            display: inline;
+            position: relative;
+            left: 580px;
+            bottom: 150px;
+        }
+
+        .kid {
+            display: inline;
+            position: relative;
+            left: 620px;
+            bottom: 150px;
+        }
+
+        .categories {
+            position: relative;
+            top: 190px;
+        }
+
+        .quantity {
+            position: relative;
+            display: inline;
+        }
+
+            .quantity label {
+                position: relative;
+                top: 140px;
+                left: 550px;
+                font-size: 19px;
+                letter-spacing: .15em;
+            }
+
+            .quantity input {
+                position: relative;
+                top: 190px;
+                left: 450px;
+                margin-top: 2px;
+                padding-top: 1px;
+                padding-bottom: 2px;
+                font-size: 1.4rem;
+                line-height: 1.4;
+                border: 0;
+                border: 1px solid #CCC;
+                border-radius: 10px;
+                max-width: 100%;
+                width: 500px;
+                font-family: CriqueGrotesk,Helvetica,Arial,sans-serif;
+                font-weight: 400;
+                outline: none;
+                background: rgba(0,0,0,0);
+                color: inherit;
+                padding: 3px 30px;
+                -webkit-transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+                transition: all 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+                -webkit-appearance: none;
+            }
+
+
     </style>
 </head>
 
@@ -231,7 +319,7 @@
             <span asp-validation-for="Description" class="text-danger"></span>
         </div>
         <h4 class="text-center category">Category</h4>
-        <div class="product-type-holder mt-4 d-flex justify-content-around">
+        <div class="product-type-holder mt-4 d-flex justify-content-around categories">
             <div class="form-check form-check-inline coat">
                 <input class="form-check-input" type="radio" name="category" id="coat" value="Coat" asp-for="@Model.Category" enabled>
                 <label class="form-check-label" for="coat">Coat</label>
@@ -257,16 +345,16 @@
                 <label class="form-check-label" for="other">Other</label>
             </div>
         </div>
-        <div class="product-type-holder mt-4 d-flex justify-content-around">
-            <div class="form-check form-check-inline">
+        <div class="product-type-holder mt-4 d-flex justify-content-around gender">
+            <div class="form-check form-check-inline man">
                 <input class="form-check-input" type="radio" name="genderType" id="man" value="Man" asp-for="@Model.GenderType" enabled>
                 <label class="form-check-label" for="man">Man</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class="form-check form-check-inline woman">
                 <input class="form-check-input" type="radio" name="genderType" id="woman" value="Woman" asp-for="@Model.GenderType" enabled>
                 <label class="form-check-label" for="woman">Woman</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class="form-check form-check-inline kid">
                 <input class="form-check-input" type="radio" name="genderType" id="kids" value="Kids" asp-for="@Model.GenderType" enabled>
                 <label class="form-check-label" for="kids">Kids</label>
             </div>
@@ -276,10 +364,10 @@
             <input class="form-control" id="image" asp-for="Image">
             <span asp-validation-for="Image" class="text-danger"></span>
         </div>
-        <div class="form-group price">
+        <div class="form-group quantity">
             <label asp-for="Quantity"></label>
             <input type="number" class="form-control" id="quantity" placeholder="Count..." asp-for="Quantity" min="1">
-            <span asp-validation-for="Price" class="text-danger"></span>
+            <span asp-validation-for="Quantity" class="text-danger"></span>
         </div>
         <div class="button-holder mt-2 d-flex justify-content-center button">
             <button type="submit" class="btn">Create</button>
