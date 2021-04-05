@@ -8,16 +8,17 @@
 
         .price label {
             position: relative;
-            left: 550px;
-            top: 130px;
+            top: 80px;
+            left: 180px;
             font-size: 19px;
             letter-spacing: .15em;
         }
 
         .price input {
             position: relative;
-            left: 480px;
-            top: 180px;
+            /* left: 480px; */
+            top: 140px;
+            right: 170px;
             margin-top: 2px;
             padding-top: 1px;
             padding-bottom: 2px;
@@ -94,8 +95,9 @@
 
         .order {
             position: relative;
-            top: 200px;
-            left: 550px;
+            top: 350px;
+            right: 170px;
+            /* left: 550px; */
             -moz-user-select: "none";
             -ms-user-select: "none";
             -webkit-user-select: "none";
@@ -225,8 +227,8 @@
         @*<a asp-controller="Orders" asp-action="Order" asp-route-id="@Model.Id" class="btn">Order</a>*@
         <form asp-controller="Orders" asp-action="Order" asp-route-id="@Model.Id" method="POST">
             <div class="form-group price">
-                <label asp-for="OrderedCount"></label>
-                <input type="number" class="form-control" id="orderedcount" placeholder="Count..." asp-for="OrderedCount" min="1">
+                <label class="label" asp-for="OrderedCount"></label>
+                <input  type="number" class="form-control input" id="orderedcount" placeholder="Count..." asp-for="OrderedCount" min="1">
                 <span asp-validation-for="OrderedCount" class="text-danger"></span>
             </div>
             <script src="https://checkout.stripe.com/v2/checkout.js"
