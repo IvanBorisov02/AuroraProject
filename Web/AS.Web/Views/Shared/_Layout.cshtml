@@ -13,7 +13,6 @@
     <style>
         $duration: .20;
         $easing: ease-in-out;
-
         main {
             position: relative;
             bottom: 150px;
@@ -193,67 +192,61 @@
             padding-left: 0px;
         }
 
-        .dropdown li a:hover {
-            border-bottom: 0px;
-            color: #fff;
-        }
-
-        /*.dropdown li:first-child a {
+            .dropdown li a:hover {
+                border-bottom: 0px;
+                color: #fff;
+            }
+            /*.dropdown li:first-child a {
             border-left: 10px solid #3498db;
         }
-
         .dropdown li:nth-child(2) a {
             border-left: 10px solid #ffd071;
         }
-
         .dropdown li:nth-child(3) a {
             border-left: 10px solid #f0776c;
         }
-
         .dropdown li:last-child a {
             border-left: 10px solid #1abc9c;
         }*/
+            .dropdown li a:after {
+                content: "";
+                height: 100%;
+                left: 0;
+                top: 0;
+                width: 0px;
+                position: absolute;
+                transition: all 0.3s ease 0s;
+                -webkit-transition: all 0.3s ease 0s;
+                z-index: -1;
+            }
 
-        .dropdown li a:after {
-            content: "";
-            height: 100%;
-            left: 0;
-            top: 0;
-            width: 0px;
-            position: absolute;
-            transition: all 0.3s ease 0s;
-            -webkit-transition: all 0.3s ease 0s;
-            z-index: -1;
-        }
+            .dropdown li a:hover:after {
+                width: 100%;
+            }
 
-        .dropdown li a:hover:after {
-            width: 100%;
-        }
+            .dropdown li:first-child a:after {
+                background: #3498db;
+            }
 
-        .dropdown li:first-child a:after {
-            background: #3498db;
-        }
+            .dropdown:nth-child(2) a:after {
+                background: #ffd071;
+            }
 
-         .dropdown:nth-child(2) a:after {
-            background: #ffd071;
-        }
+            .dropdown li:nth-child(3) a:after {
+                background: #f0776c;
+            }
 
-        .dropdown li:nth-child(3) a:after {
-            background: #f0776c;
-        }
+            .dropdown li:nth-child(4) a:after {
+                background: #3498db;
+            }
 
-        .dropdown li:nth-child(4) a:after {
-            background: #3498db;
-        }
+            .dropdown li:nth-child(5) a:after {
+                background: #ffd071;
+            }
 
-        .dropdown li:nth-child(5) a:after {
-            background: #ffd071;
-        }
-
-        .dropdown li:last-child a:after {
-            background: #f0776c;
-        }
-
+            .dropdown li:last-child a:after {
+                background: #f0776c;
+            }
     </style>
 </head>
 <body>
@@ -292,17 +285,45 @@
                             }
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <li class="nav-item active clothing">
-                                    <a class="nav-link" href="#">Clothing</a>
-                                    <ul class="dropdown">
-                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Coat">Coats</a></li>
-                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Puffer">Puffers</a></li>
-                                        <li><a  data-wipe="Wipe Hover Effect"asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jacket">Jackets</a></li>
-                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jeans">Jeans</a></li>
-                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="T-shirt">T-shirts</a></li>
-                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Other">Other</a></li>
+                        <li class="nav-item active clothing">
+                            <a class="nav-link" href="#">Clothing</a>
+                            <ul class="dropdown">
+                                <li>
+                                <li>
+                                    <a href="#">Man</a>
+                                    <ul>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Coat" asp-route-gendertypename="Man">Coats</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Puffer" asp-route-gendertypename="Man">Puffers</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jacket" asp-route-gendertypename="Man">Jackets</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jeans" asp-route-gendertypename="Man">Jeans</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="T-shirt" asp-route-gendertypename="Man">T-shirts</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Other" asp-route-gendertypename="Man">Other</a></li>
                                     </ul>
                                 </li>
+                                <li>
+                                    <a href="#">Woman</a>
+                                    <ul>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Coat" asp-route-gendertypename="Woman">Coats</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Puffer" asp-route-gendertypename="Woman">Puffers</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jacket" asp-route-gendertypename="Woman">Jackets</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jeans" asp-route-gendertypename="Woman">Jeans</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="T-shirt" asp-route-gendertypename="Woman">T-shirts</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Other" asp-route-gendertypename="Woman">Other</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Kids</a>
+                                    <ul>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Coat" asp-route-gendertypename="Kids">Coats</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Puffer" asp-route-gendertypename="Kids">Puffers</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jacket" asp-route-gendertypename="Kids">Jackets</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Jeans" asp-route-gendertypename="Kids">Jeans</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="T-shirt" asp-route-gendertypename="Kids">T-shirts</a></li>
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="Categorize" asp-route-categoryname="Other" asp-route-gendertypename="Kids">Other</a></li>
+                                    </ul>
+                                </li>
+                            </ul>                                 
+                        </li>
 
                                 <li class="nav-item active logout">
                                     <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
@@ -310,7 +331,7 @@
 
                             }
 
-</div>
+                    </div>
                 </div>
             </nav>
         </header>

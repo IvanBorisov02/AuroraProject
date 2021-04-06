@@ -51,7 +51,7 @@ namespace AS.Web.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Categorize(string categoryName, ProductCategorizedHomeViewModel model)
+        public async Task<IActionResult> Categorize(string categoryName, string genderTypeName, ProductCategorizedHomeViewModel model)
         {
             model.Pager ??= new PagerViewModel();
             model.Pager.CurrentPage = model.Pager.CurrentPage <= 0 ? 1 : model.Pager.CurrentPage;
@@ -61,7 +61,7 @@ namespace AS.Web.Controllers
             if (this.User.Identity.IsAuthenticated)
             {
                  models = await this._context.Products
-                    .Where(product => product.Category.Name == categoryName)
+                    .Where(product => (product.Category.Name == categoryName) && product.GenderType.Name == genderTypeName)
                     .Select(product => new ProductCategorizedViewModel
                     {
                         Id = product.Id,
