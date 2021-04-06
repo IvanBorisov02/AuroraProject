@@ -11,7 +11,7 @@ namespace AS.Web.Models
         public decimal Price { get; set; }
         public string Description { get; set; }
         public string CategoryName { get; set; }
-
+        public string GenderTypeName { get; set; }
         public string ImageUrl { get; set; }
 
     }

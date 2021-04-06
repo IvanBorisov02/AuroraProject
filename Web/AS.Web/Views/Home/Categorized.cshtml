@@ -154,14 +154,12 @@
             </div>
         </div>
     </div>
-@if (Model.Pager.PagesCount > 1)
-{
+
     <ul class="pagination">
         @for (var i = 1; i <= Model.Pager.PagesCount; i++)
         {
             <li id="page-item" class="page-item @(i == Model.Pager.CurrentPage ? "active" : "")">
-                <a asp-route-Pager.CurrentPage="@i" class="page-link">@i</a>
+                <a asp-route-Pager.CurrentPage="@i" asp-route-categoryname="@Model.Products.First().CategoryName" asp-route-gendertypename="@Model.Products.First().GenderTypeName" class="page-link">@i</a>
             </li>
         }
     </ul>
-}
