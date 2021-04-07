@@ -8,5 +8,7 @@ namespace AS.Web.Models
         public PagerViewModel Pager { get; set; }
 
         public ICollection<ProductViewModel> Products { get; set; }
+
+        public string SearchText { get; set; }
     }
 }

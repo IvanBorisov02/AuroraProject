@@ -11,6 +11,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Korzh.EasyQuery.Linq;
 
 namespace AS.Services
 {
@@ -25,9 +26,11 @@ namespace AS.Services
             this.productsService = productsService;
         }
 
-        public async Task<List<OrderServiceModel>> AllOrders()
+        public async Task<List<OrderServiceModel>> AllOrders(string searchText)
         {
-            List<Data.Models.Order> orders = await this.db.Orders.ToListAsync();
+            List<Data.Models.Order> orders = new List<Data.Models.Order>();
+            orders = await this.db.Orders.ToListAsync();
+
 
             List<OrderServiceModel> serviceModels = new List<OrderServiceModel>();
 
@@ -40,10 +43,21 @@ namespace AS.Services
                 order.Orderer = currentOrderer;
 
                 serviceModels.Add(order.To<OrderServiceModel>());
-                
+
             }
 
-            return serviceModels;
+
+            List<OrderServiceModel> result = new List<OrderServiceModel>();
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                result = serviceModels.Where(x => x.Product.Name.Contains(searchText) || x.Orderer.Email.Contains(searchText) || x.OrderedOn.ToString("MM dd yyyy HH:mm:ss").Contains(searchText)).ToList();
+            }
+            else
+            {
+                result = serviceModels;
+            }
+
+            return result;
         }
 
 

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AS.Data;
+using Korzh.EasyQuery.Linq;
 using AS.Data.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
@@ -38,12 +39,12 @@ namespace AS.Web.Controllers
             return Redirect($"/Products/Details/{id}");
         }
 
-        [HttpGet]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> AllAsync()
+        public async Task<IActionResult> AllAsync(string searchText)
         {
+
             List<OrderAllViewModel> models = new List<OrderAllViewModel>();
-            List<OrderServiceModel> serviceModels = await this.ordersService.AllOrders();
+            List<OrderServiceModel> serviceModels = await this.ordersService.AllOrders(searchText);
 
             foreach (var serviceModel in serviceModels)
             {

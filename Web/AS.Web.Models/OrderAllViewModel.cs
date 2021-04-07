@@ -18,5 +18,7 @@ namespace AS.Web.Models
               CreateMap<OrderServiceModel, OrderAllViewModel>()
               .ForMember(dest => dest.Product, opts => opts.MapFrom(src => src.Product.Name));
         }
+
+
     }
 }

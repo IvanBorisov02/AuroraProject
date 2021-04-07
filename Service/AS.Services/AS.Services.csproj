@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Korzh.EasyQuery.Linq" Version="7.0.5" />
     <PackageReference Include="Stripe.net" Version="39.39.0" />
   </ItemGroup>
 

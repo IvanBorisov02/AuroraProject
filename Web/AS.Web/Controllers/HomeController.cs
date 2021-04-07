@@ -1,6 +1,7 @@
 ﻿using AS.Data;
 using AS.Web.Models;
 using AS.Web.Models.Shared;
+using Korzh.EasyQuery.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -32,8 +33,10 @@ namespace AS.Web.Controllers
 
             if (this.User.Identity.IsAuthenticated)
             {
-                List<ProductViewModel> models = await _context.Products.Skip((model.Pager.CurrentPage - 1) * PageSize).Take(PageSize).Select(product => new ProductViewModel()
+                if (!string.IsNullOrEmpty(model.SearchText))
                 {
+                    List<ProductViewModel> models = await _context.Products.FullTextSearchQuery(model.SearchText).Skip((model.Pager.CurrentPage - 1) * PageSize).Take(PageSize).Select(product => new ProductViewModel()
+                    {
                         Id = product.Id,
                         Name = product.Name,
                         Price = product.Price,
@@ -41,8 +44,23 @@ namespace AS.Web.Controllers
                         ImageUrl = product.ImageUrl
                     })
                     .ToListAsync();
+                    model.Products = models;
+                }
+                else
+                {
+                    List<ProductViewModel> models = await _context.Products.Skip((model.Pager.CurrentPage - 1) * PageSize).Take(PageSize).Select(product => new ProductViewModel()
+                    {
+                        Id = product.Id,
+                        Name = product.Name,
+                        Price = product.Price,
+                        Description = product.Description,
+                        ImageUrl = product.ImageUrl
+                    })
+                   .ToListAsync();
+                    model.Products = models;
+                }
+                
 
-                model.Products = models;
                 model.Pager.PagesCount = (int)Math.Ceiling(await _context.Products.CountAsync() / (double)PageSize);
 
                 return this.View("Home", model);
@@ -60,30 +78,60 @@ namespace AS.Web.Controllers
 
             if (this.User.Identity.IsAuthenticated)
             {
-                 models = await this._context.Products
-                    .Where(product => (product.Category.Name == categoryName) && product.GenderType.Name == genderTypeName)
-                    .Select(product => new ProductCategorizedViewModel
-                    {
-                        Id = product.Id,
-                        Name = product.Name,
-                        Price = product.Price,
-                        Description = product.Description,
-                        CategoryName = categoryName,
-                        ImageUrl = product.ImageUrl,
-                        GenderTypeName = product.GenderType.Name
-                    })
-                    .ToListAsync();
-
-               
-
-                if (models.Count == 0)
+                if (!string.IsNullOrEmpty(model.SearchText))
                 {
-                    ProductEmptyViewModel error = new ProductEmptyViewModel { CategoryName = categoryName };
+                    models = await this._context.Products
+                 .FullTextSearchQuery(model.SearchText)
+                 .Skip((model.Pager.CurrentPage - 1) * PageSize).Take(PageSize)
+                 .Where(product => (product.Category.Name == categoryName) && product.GenderType.Name == genderTypeName)
+                 .Select(product => new ProductCategorizedViewModel
+                 {
+                     Id = product.Id,
+                     Name = product.Name,
+                     Price = product.Price,
+                     Description = product.Description,
+                     CategoryName = categoryName,
+                     ImageUrl = product.ImageUrl,
+                     GenderTypeName = product.GenderType.Name
+                 })
+                 .ToListAsync();
 
-                    return this.View("Empty", error);
+                    if (models.Count == 0)
+                    {
+                        ProductEmptyViewModel error = new ProductEmptyViewModel { CategoryName = categoryName };
+
+                        return this.View("Empty", error);
+                    }
+
+                    model.Products = models;
                 }
+                else
+                {
+                    models = await this._context.Products
+                   .Skip((model.Pager.CurrentPage - 1) * PageSize).Take(PageSize)
+                   .Where(product => (product.Category.Name == categoryName) && product.GenderType.Name == genderTypeName)
+                   .Select(product => new ProductCategorizedViewModel
+                   {
+                       Id = product.Id,
+                       Name = product.Name,
+                       Price = product.Price,
+                       Description = product.Description,
+                       CategoryName = categoryName,
+                       ImageUrl = product.ImageUrl,
+                       GenderTypeName = product.GenderType.Name
+                   })
+                   .ToListAsync();
 
-                model.Products = models;
+                    if (models.Count == 0)
+                    {
+                        ProductEmptyViewModel error = new ProductEmptyViewModel { CategoryName = categoryName };
+
+                        return this.View("Empty", error);
+                    }
+
+                    model.Products = models;
+                }
+                            
                 model.Pager.PagesCount = (int)Math.Ceiling( models.Count / (double)PageSize);
                 return this.View("Categorized", model);
             }

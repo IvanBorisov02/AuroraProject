@@ -10,7 +10,7 @@ namespace AS.Services
     {
         Task<bool> Order(string id, string ordererId, string stripeEmail, string stripeToken, int itemCount);
 
-        Task <List<OrderServiceModel>> AllOrders();
+        Task <List<OrderServiceModel>> AllOrders(string searchText);
 
     }
 }
