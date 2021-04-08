@@ -4,9 +4,11 @@
 
 <head>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
     <style>
 
-        
+
 
         .welcome {
             color: black;
@@ -116,83 +118,103 @@
             bottom: 160px;
         }
 
-.slideshow-container {
-  width: 2500px;
-  font-size: 0;
-  transition: 1s ease;
-  height: 225px;
-}
+        .slideshow-container {
+            width: 2500px;
+            font-size: 0;
+            transition: 1s ease;
+            height: 225px;
+        }
 
-.slideshow-container:hover {
-  animation-play-state: paused;
-}
+            .slideshow-container:hover {
+                animation-play-state: paused;
+            }
 
-img, .text-container {
-  width: 625px;
-  height: 350px;
-  display: inline-block;
-  font-size: 16px;
-  text-align: center;
-  z-index: 2;
-}
+        img, .text-container {
+            width: 625px;
+            height: 350px;
+            display: inline-block;
+            font-size: 16px;
+            text-align: center;
+            z-index: 2;
+        }
 
-.text-container {
-  height: 225px;
-  position: relative;
-}
+        .text-container {
+            height: 225px;
+            position: relative;
+        }
 
 
-p {
-  position: relative;
-  top: -45%;
-  padding: 5px;
-}
+        p {
+            position: relative;
+            top: -45%;
+            padding: 5px;
+        }
 
-.slide {
-  animation: slide 24s ease infinite;
-}
+        .slide {
+            animation: slide 24s ease infinite;
+        }
 
-@@keyframes slide {
-  0% {
-    transform: translateX(0%);
-  }
+        @@keyframes slide {
+            0% {
+                transform: translateX(0%);
+            }
 
-  12.5% {
-    transform: translateX(0%);
-  }
+            12.5% {
+                transform: translateX(0%);
+            }
 
-  25% {
-    transform: translateX(-25%);
-  }
+            25% {
+                transform: translateX(-25%);
+            }
 
-  37.5% {
-    transform: translateX(-25%);
-  }
+            37.5% {
+                transform: translateX(-25%);
+            }
 
-  50% {
-    transform: translateX(-50%);
-  }
+            50% {
+                transform: translateX(-50%);
+            }
 
-  62.5% {
-    transform: translateX(-50%);
-  }
+            62.5% {
+                transform: translateX(-50%);
+            }
 
-  75% {
-    transform: translateX(-75%);
-  }
+            75% {
+                transform: translateX(-75%);
+            }
 
-  87.5% {
-    transform: translateX(-75%);
-  }
+            87.5% {
+                transform: translateX(-75%);
+            }
 
-  99% {
-    transform: translateX(-75%);
-  }
+            99% {
+                transform: translateX(-75%);
+            }
 
-  100% {
-    transform: translateX(0);
-  }
-}
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .input {
+            position: relative;
+            bottom: 410px;
+            left: 680px;
+            border: none;
+            letter-spacing: .15em;
+            font-family: monospace;
+            width: 138px;
+            outline: none;
+        }
+
+        .btn {
+            position: relative;
+            bottom: 410px;
+            left: 675px;
+            border: none;
+            background-color: white;
+        }
+
     </style>
 
 </head>
@@ -208,8 +230,8 @@ p {
 @* search *@
 <form method="post">
     <div class="row form-group">
-        <input type="text" class="form-control input" id="searchText" placeholder="Search..." asp-for="SearchText">
-        <button type="submit" class="btn">Search</button>
+        <input type="text" class="form-control input" id="searchText" placeholder="Search Products" asp-for="SearchText">
+        <button type="submit" class="btn"><i class="fas fa-search"></i></button>
     </div>
 </form>
 @* end search *@
