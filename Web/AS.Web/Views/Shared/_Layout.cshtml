@@ -188,6 +188,9 @@
                 width: 100%;
             }
 
+
+
+       
         .dropdown {
             text-align: center;
             width: 100%;
@@ -270,7 +273,12 @@
 
                             <li class="nav-item active home">
                                 <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
+                               
+                                    <ul class="dropdown">
+                                        <li><a data-wipe="Wipe Hover Effect" asp-controller="Home" asp-action="NewRelease">New Release</a></li>
+                                    </ul>
+                              
+                             </li>
 
                             @if (!this.User.Identity.IsAuthenticated)
                             {
