@@ -3,6 +3,9 @@
 
 <head>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+
     <style>
 
         .first h2 {
@@ -107,7 +110,24 @@
             text-decoration-line: underline;
         }
 
+        .input {
+            position: relative;
+            bottom: 180px;
+            left: 670px;
+            border: none;
+            letter-spacing: .15em;
+            font-family: monospace;
+            width: 138px;
+            outline: none;
+        }
 
+        .btn {
+            position: relative;
+            bottom: 180px;
+            left: 665px;
+            border: none;
+            background-color: white;
+        }
 
     </style>
 
@@ -117,8 +137,8 @@
 @* search *@
 <form method="post">
     <div class="row form-group">
-        <input type="text" class="form-control input" id="searchText" placeholder="Search..." asp-for="SearchText">
-        <button type="submit" class="btn">Search</button>
+        <input type="text" class="form-control input" id="searchText" placeholder="Search Products" asp-for="SearchText">
+        <button type="submit" class="btn"><i class="fas fa-search"></i></button>
     </div>
 </form>
 @* end search *@

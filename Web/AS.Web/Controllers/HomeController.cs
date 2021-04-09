@@ -139,6 +139,53 @@ namespace AS.Web.Controllers
             return View();
         }
 
+        public async Task<IActionResult> NewRelease(ProductHomeViewModel model)
+        {
+            if (this.User.Identity.IsAuthenticated)
+            {
+                if (!string.IsNullOrEmpty(model.SearchText))
+                {
+                    //Considering the last
+                    List<ProductViewModel> models = await _context.Products.FullTextSearchQuery(model.SearchText).Select(product => new ProductViewModel()
+                    {
+                        Id = product.Id,
+                        Name = product.Name,
+                        Price = product.Price,
+                        Description = product.Description,
+                        ImageUrl = product.ImageUrl
+                    })
+                    .ToListAsync();
+
+                    models.Reverse();
+                    var newRelease = models.Take(5).ToList();
+                    model.Products = newRelease;
+                }
+                else
+                {
+                    List<ProductViewModel> models = await _context.Products.Select(product => new ProductViewModel()
+                    {
+                        Id = product.Id,
+                        Name = product.Name,
+                        Price = product.Price,
+                        Description = product.Description,
+                        ImageUrl = product.ImageUrl
+                    })
+                   .ToListAsync();
+                    models.Reverse();
+                    var newRelease = models.Take(5).ToList();
+                    model.Products = newRelease;
+                }
+
+
+
+                return this.View("NewRelease", model);
+            }
+
+            return View();
+        }
+
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

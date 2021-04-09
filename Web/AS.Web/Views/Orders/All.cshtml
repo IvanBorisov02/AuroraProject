@@ -1,6 +1,10 @@
 ﻿@model List<OrderAllViewModel>
 
 <head>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+
     <style>
         h1.text-center {
             position: relative;
@@ -57,14 +61,53 @@
             position: relative;
             left: 500px;
         }
+
+        /*.input {
+            position: relative;
+            bottom: 410px;
+            left: 680px;
+            border: none;
+            letter-spacing: .15em;
+            font-family: monospace;
+            width: 138px;
+            outline: none;
+        }
+
+        .btn {
+            position: relative;
+            bottom: 410px;
+            left: 675px;
+            border: none;
+            background-color: white;
+        }*/
+
+        .input {
+            position: relative;
+            bottom: 180px;
+            left: 680px;
+            border: none;
+            letter-spacing: .15em;
+            font-family: monospace;
+            width: 138px;
+            outline: none;
+        }
+
+        .btn {
+            position: relative;
+            bottom: 180px;
+            left: 655px;
+            border: none;
+            background-color: white;
+        }
+
     </style>
 </head>
 
 @* search *@
 <form method="post" asp-controller="Orders" asp-action="All">
     <div class="row form-group">
-        <input type="text" class="form-control input" name="searchText" id="searchText" placeholder="Search...">
-        <button type="submit" class="btn">Search</button>
+        <input type="text" class="form-control input" name="searchText" id="searchText" placeholder="Search Orders">
+        <button type="submit" class="btn"><i class="fas fa-search"></i></button>
     </div>
 </form>
 @* end search *@
