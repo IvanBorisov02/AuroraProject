@@ -14,7 +14,7 @@ namespace AS.Services.Models
 
         public string Description { get; set; }
 
-        public string CategoryId { get; set; }
+        public string? CategoryId { get; set; }
 
         public CategoryServiceModel CategoryServiceModel { get; set; }
 

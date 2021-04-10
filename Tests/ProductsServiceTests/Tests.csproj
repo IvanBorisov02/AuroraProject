@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+    <PackageReference Include="NUnit" Version="3.13.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\AutoMapperConfiguration\AutoMapperConfiguration.csproj" />
+    <ProjectReference Include="..\..\Common\StripeConfig\StripeConfig.csproj" />
+    <ProjectReference Include="..\..\Data\AS.Data.Models\AS.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Data\AS.Data\AS.Data.csproj" />
+    <ProjectReference Include="..\..\Service\AS.Services.Models\AS.Services.Models.csproj" />
+    <ProjectReference Include="..\..\Service\AS.Services\AS.Services.csproj" />
+    <ProjectReference Include="..\..\Web\AS.Web.Models\AS.Web.Models.csproj" />
+    <ProjectReference Include="..\..\Web\AS.Web\AS.Web.csproj" />
+  </ItemGroup>
+
+</Project>

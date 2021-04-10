@@ -41,7 +41,7 @@ namespace AS.Web.Controllers
 
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AllAsync(string searchText)
-        {
+         {
 
             List<OrderAllViewModel> models = new List<OrderAllViewModel>();
             List<OrderServiceModel> serviceModels = await this.ordersService.AllOrders(searchText);
