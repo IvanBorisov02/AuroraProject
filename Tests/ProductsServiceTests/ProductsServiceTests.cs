@@ -18,7 +18,7 @@ namespace Tests
         public void Setup() {}
 
         [Test]
-        public async Task CreateProductTest()
+        public async Task CreateProductTestWithRegularData()
         {
             AutoMapperConfig.RegisterMappings(typeof(ProductCreateViewModel).Assembly.GetTypes(),
                 typeof(ASUser).Assembly.GetTypes(),
@@ -47,7 +47,7 @@ namespace Tests
         }
 
         [Test]
-        public async Task EditProductTest()
+        public async Task EditProductTestWithRegularData()
         {
             AutoMapperConfig.RegisterMappings(typeof(ProductCreateViewModel).Assembly.GetTypes(),
                 typeof(ASUser).Assembly.GetTypes(),
@@ -57,7 +57,6 @@ namespace Tests
             ASDbContext db = new ASDbContext(options);
 
             ProductsService productsService = new ProductsService(db);
-
             
             //Creating test product
             ProductCreateViewModel initialProduct = new ProductCreateViewModel()
@@ -88,13 +87,11 @@ namespace Tests
             var result = await productsService.EditProduct(changedProduct, "", testProduct.Id);
 
             Assert.AreEqual(true, result);
-
         }
 
         [Test]
-        public async Task DeleteProductTest()
+        public async Task DeleteProductTestWithRegularData()
         {
-
             AutoMapperConfig.RegisterMappings(typeof(ProductCreateViewModel).Assembly.GetTypes(),
                 typeof(ASUser).Assembly.GetTypes(),
                 typeof(ProductServiceModel).Assembly.GetTypes());
@@ -123,7 +120,38 @@ namespace Tests
             var result = await productsService.DeleteProduct(testProduct.Id);
 
             Assert.AreEqual(true, result);
+        }
 
+        [Test]
+        public async Task CreateProductWithNullDescriptionShouldAssignConstDescriptionMessage()
+        {
+
+            AutoMapperConfig.RegisterMappings(typeof(ProductCreateViewModel).Assembly.GetTypes(),
+                typeof(ASUser).Assembly.GetTypes(),
+                typeof(ProductServiceModel).Assembly.GetTypes());
+
+            var options = new DbContextOptionsBuilder<ASDbContext>().UseSqlServer("Server=.\\SQLEXPRESS;Database=AShopDB;Trusted_Connection=True;MultipleActiveResultSets=true").Options;
+            ASDbContext db = new ASDbContext(options);
+
+            ProductsService productsService = new ProductsService(db);
+
+
+            //Creating test product
+            ProductCreateViewModel initialProduct = new ProductCreateViewModel()
+            {
+                Category = "Coat",
+                Description = null,
+                GenderType = "Man",
+                Price = 50,
+                Quantity = 60,
+                Name = "testProduct123"
+            };
+            ProductServiceModel model = initialProduct.To<ProductServiceModel>();
+
+            await productsService.CreateProduct(model, "");
+            var testProduct = await db.Products.Include(p => p.Category).Include(p => p.GenderType).FirstOrDefaultAsync(p => p.Name == initialProduct.Name);
+
+            Assert.AreEqual("No Description", testProduct.Description);
         }
 
     }
