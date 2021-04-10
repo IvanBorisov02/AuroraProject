@@ -58,7 +58,7 @@ namespace AS.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
-            Product product = await this._context.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
+            Product product = await this._context.Products.Include(product => product.Category).Include(product => product.GenderType).SingleOrDefaultAsync(product => product.Id == id);
 
             ProductDetailsViewModel productDetailsViewModel = new ProductDetailsViewModel
             {
@@ -77,7 +77,7 @@ namespace AS.Web.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id)
         {
-            Product product = await this._context.Products.Include(product => product.Category).SingleOrDefaultAsync(product => product.Id == id);
+            Product product = await this._context.Products.Include(product => product.Category).Include(product => product.GenderType).SingleOrDefaultAsync(product => product.Id == id);
 
             ProductEditViewModel productEditViewModel = new ProductEditViewModel
             {
@@ -105,6 +105,7 @@ namespace AS.Web.Controllers
 
             ProductServiceModel serviceModel = productEditViewModel.To<ProductServiceModel>();
             serviceModel.CategoryServiceModel = new CategoryServiceModel { Name = productEditViewModel.Category };
+            serviceModel.GenderTypeServiceModel = new GenderTypeServiceModel { Name = productEditViewModel.GenderType };
 
             string fileName = UploadFile(productEditViewModel);
 

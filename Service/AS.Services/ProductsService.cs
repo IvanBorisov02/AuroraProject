@@ -54,14 +54,30 @@ namespace AS.Services
         {
             productServiceModel.ImageUrl = stringFileName;
 
+            Product oldProduct = await this.db.Products.Include(product => product.Category).Include(product => product.GenderType).SingleOrDefaultAsync(product => product.Id == id);
+
             Product product = productServiceModel.To<Product>();
 
             Category category = await this.db.Categories.SingleOrDefaultAsync(category => category.Name == productServiceModel.CategoryServiceModel.Name);
+            GenderType genderType = await this.db.GenderTypes.SingleOrDefaultAsync(genderType => genderType.Name == productServiceModel.GenderTypeServiceModel.Name);
 
             product.Category = category;
+            product.CategoryId = product.Category.Id;
+
+            product.GenderType = genderType;
+            product.GenderTypeId = product.GenderType.Id;
             product.Id = id;
 
-            bool result = this.db.Update(product) != null;
+            oldProduct.Name = product.Name;
+            oldProduct.Price = product.Price;
+            oldProduct.Quantity = product.Quantity;
+            oldProduct.ImageUrl = product.ImageUrl;
+            oldProduct.GenderType = genderType;
+            oldProduct.GenderTypeId = genderType.Id;
+            oldProduct.Category = category;
+            oldProduct.CategoryId = category.Id;
+
+            bool result = this.db.Update(oldProduct) != null;
             await this.db.SaveChangesAsync();
 
             return result;

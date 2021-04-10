@@ -313,7 +313,7 @@
         <h4 class="text-center category">Category</h4>
         <div class="product-type-holder mt-4 d-flex justify-content-around">
             <div class="form-check form-check-inline coat">
-                <input class="form-check-input" type="radio" name="category" id="coat" value="Coat" asp-for="@Model.Category" enabled>
+                <input class="form-check-input" type="radio" name="category" id="coat" value="Coat" asp-for="@Model.Category" enabled checked>
                 <label class="form-check-label" for="coat">Coat</label>
             </div>
             <div class="form-check form-check-inline puffer">
@@ -337,10 +337,29 @@
                 <label class="form-check-label" for="other">Other</label>
             </div>
         </div>
+        <div class="product-type-holder mt-4 d-flex justify-content-around gender">
+            <div class="form-check form-check-inline man">
+                <input class="form-check-input" type="radio" name="genderType" id="man" value="Man" asp-for="@Model.GenderType" enabled checked>
+                <label class="form-check-label" for="man">Man</label>
+            </div>
+            <div class="form-check form-check-inline woman">
+                <input class="form-check-input" type="radio" name="genderType" id="woman" value="Woman" asp-for="@Model.GenderType" enabled>
+                <label class="form-check-label" for="woman">Woman</label>
+            </div>
+            <div class="form-check form-check-inline kid">
+                <input class="form-check-input" type="radio" name="genderType" id="kids" value="Kids" asp-for="@Model.GenderType" enabled>
+                <label class="form-check-label" for="kids">Kids</label>
+            </div>
+        </div>
         <div class="form-group image">
             <label asp-for="Image" class="control-label"></label>
             <input class="form-control" id="image" asp-for="Image">
             <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+        <div class="form-group quantity">
+            <label asp-for="Quantity"></label>
+            <input type="number" class="form-control" id="quantity" placeholder="Count..." asp-for="Quantity" min="1">
+            <span asp-validation-for="Quantity" class="text-danger"></span>
         </div>
         <div class="button-holder mt-4 w-25 mx-auto d-flex justify-content-around">
             <button type="submit" class="btn update">Update</button>

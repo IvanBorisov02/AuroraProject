@@ -46,5 +46,50 @@ namespace Tests
 
         }
 
+        [Test]
+        public async Task EditProductTest()
+        {
+            AutoMapperConfig.RegisterMappings(typeof(ProductCreateViewModel).Assembly.GetTypes(),
+                typeof(ASUser).Assembly.GetTypes(),
+                typeof(ProductServiceModel).Assembly.GetTypes());
+
+            var options = new DbContextOptionsBuilder<ASDbContext>().UseSqlServer("Server=.\\SQLEXPRESS;Database=AShopDB;Trusted_Connection=True;MultipleActiveResultSets=true").Options;
+            ASDbContext db = new ASDbContext(options);
+
+            ProductsService productsService = new ProductsService(db);
+
+            
+            //Creating test product
+            ProductCreateViewModel initialProduct = new ProductCreateViewModel()
+            {
+                Category = "Coat",
+                Description = "asdasdasdas",
+                GenderType = "Man",
+                Price = 50,
+                Quantity = 60,
+                Name = "testProduct123"
+            };
+            ProductServiceModel model = initialProduct.To<ProductServiceModel>();
+
+            await productsService.CreateProduct(model, "");
+            var testProduct = await db.Products.Include(p => p.Category).Include(p => p.GenderType).FirstOrDefaultAsync(p => p.Name == initialProduct.Name);
+
+            //initializing edit model
+            ProductServiceModel changedProduct = new ProductServiceModel()
+            {
+                CategoryServiceModel = new CategoryServiceModel { Name = "T-shirt" },
+                GenderTypeServiceModel = new GenderTypeServiceModel { Name = "Woman" },
+                Description = "TestinggCHANGED",
+                Price = 50,
+                Quantity = 60,
+                Name = "testProduct123CHANGED"
+            };
+
+            var result = await productsService.EditProduct(changedProduct, "", testProduct.Id);
+
+            Assert.AreEqual(true, result);
+
+        }
+
     }
 }
