@@ -228,7 +228,7 @@
         <form asp-controller="Orders" asp-action="Order" asp-route-id="@Model.Id" method="POST">
             <div class="form-group price">
                 <label class="label" asp-for="OrderedCount"></label>
-                <input  type="number" class="form-control input" id="orderedcount" placeholder="Count..." asp-for="OrderedCount" min="1">
+                <input  type="number" class="form-control input" id="orderedcount" placeholder="How many?" asp-for="OrderedCount" min="1">
                 <span asp-validation-for="OrderedCount" class="text-danger"></span>
             </div>
             <script src="https://checkout.stripe.com/v2/checkout.js"
