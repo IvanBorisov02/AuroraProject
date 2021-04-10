@@ -15,8 +15,14 @@ namespace Tests
     [TestFixture]
     public class ProductsServiceTests
     {
+
+
         [SetUp]
-        public void Setup() {}
+        public void Setup() 
+        {
+       
+        }
+
 
         [Test]
         public async Task CreateProductTestWithRegularData()
@@ -25,8 +31,9 @@ namespace Tests
                 typeof(ASUser).Assembly.GetTypes(),
                 typeof(ProductServiceModel).Assembly.GetTypes());
 
-            var options = new DbContextOptionsBuilder<ASDbContext>().UseSqlServer("Server=.\\SQLEXPRESS;Database=AShopDB;Trusted_Connection=True;MultipleActiveResultSets=true").Options;
-            ASDbContext db = new ASDbContext(options);
+           var options = new DbContextOptionsBuilder<ASDbContext>().UseSqlServer("Server=.\\SQLEXPRESS;Database=AShopDB;Trusted_Connection=True;MultipleActiveResultSets=true").Options;
+           ASDbContext db = new ASDbContext(options);
+
 
             ProductsService productsService = new ProductsService(db);
 
@@ -145,7 +152,7 @@ namespace Tests
                 GenderType = "Man",
                 Price = 50,
                 Quantity = 60,
-                Name = "testProduct123"
+                Name = "testProasdasdasdaduct123"
             };
             ProductServiceModel model = initialProduct.To<ProductServiceModel>();
 
@@ -176,7 +183,7 @@ namespace Tests
                 GenderType = "Man",
                 Price = 50,
                 Quantity = 60,
-                Name = "asdasdasdasdasdas"
+                Name = "asdasdasdasda2131asdasdsadas231sdas"
             };
             ProductServiceModel model = initialProduct.To<ProductServiceModel>();
 
@@ -209,7 +216,7 @@ namespace Tests
                 GenderType = "Man",
                 Price = 50,
                 Quantity = 60,
-                Name = "testProduct123"
+                Name = "testPrasasdasddasdodu21312321ct123"
             };
             ProductServiceModel model = initialProduct.To<ProductServiceModel>();
 
