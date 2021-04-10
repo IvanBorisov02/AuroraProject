@@ -7,6 +7,7 @@ using AutoMapperConfiguration;
 using AutoMapperTestConfiguration;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
+using System;
 using System.Threading.Tasks;
 
 namespace Tests
@@ -123,7 +124,7 @@ namespace Tests
         }
 
         [Test]
-        public async Task CreateProductWithNullDescriptionShouldAssignConstDescriptionMessage()
+        public async Task CreateProductWithNullDescriptionShouldAssignConstDescriptionMessageTest()
         {
 
             AutoMapperConfig.RegisterMappings(typeof(ProductCreateViewModel).Assembly.GetTypes(),
@@ -152,6 +153,71 @@ namespace Tests
             var testProduct = await db.Products.Include(p => p.Category).Include(p => p.GenderType).FirstOrDefaultAsync(p => p.Name == initialProduct.Name);
 
             Assert.AreEqual("No Description", testProduct.Description);
+        }
+
+        [Test]
+        public async Task DecreaseQuantityOfProductWithValidDataTest()
+        {
+            AutoMapperConfig.RegisterMappings(typeof(ProductCreateViewModel).Assembly.GetTypes(),
+                typeof(ASUser).Assembly.GetTypes(),
+                typeof(ProductServiceModel).Assembly.GetTypes());
+
+            var options = new DbContextOptionsBuilder<ASDbContext>().UseSqlServer("Server=.\\SQLEXPRESS;Database=AShopDB;Trusted_Connection=True;MultipleActiveResultSets=true").Options;
+            ASDbContext db = new ASDbContext(options);
+
+            ProductsService productsService = new ProductsService(db);
+
+
+            //Creating test product
+            ProductCreateViewModel initialProduct = new ProductCreateViewModel()
+            {
+                Category = "Coat",
+                Description = null,
+                GenderType = "Man",
+                Price = 50,
+                Quantity = 60,
+                Name = "asdasdasdasdasdas"
+            };
+            ProductServiceModel model = initialProduct.To<ProductServiceModel>();
+
+            await productsService.CreateProduct(model, "");
+            var testProduct = await db.Products.Include(p => p.Category).Include(p => p.GenderType).FirstOrDefaultAsync(p => p.Name == initialProduct.Name);
+
+            await productsService.DecreaseQuantity(testProduct.Id, 10);
+
+            Assert.AreEqual(50, testProduct.Quantity);
+        }
+
+        [Test]
+        public async Task DecreaseQuantityOfProductWithInvalidDataTest()
+        {
+            AutoMapperConfig.RegisterMappings(typeof(ProductCreateViewModel).Assembly.GetTypes(),
+                typeof(ASUser).Assembly.GetTypes(),
+                typeof(ProductServiceModel).Assembly.GetTypes());
+
+            var options = new DbContextOptionsBuilder<ASDbContext>().UseSqlServer("Server=.\\SQLEXPRESS;Database=AShopDB;Trusted_Connection=True;MultipleActiveResultSets=true").Options;
+            ASDbContext db = new ASDbContext(options);
+
+            ProductsService productsService = new ProductsService(db);
+
+
+            //Creating test product
+            ProductCreateViewModel initialProduct = new ProductCreateViewModel()
+            {
+                Category = "Coat",
+                Description = null,
+                GenderType = "Man",
+                Price = 50,
+                Quantity = 60,
+                Name = "testProduct123"
+            };
+            ProductServiceModel model = initialProduct.To<ProductServiceModel>();
+
+            await productsService.CreateProduct(model, "");
+            var testProduct = await db.Products.Include(p => p.Category).Include(p => p.GenderType).FirstOrDefaultAsync(p => p.Name == initialProduct.Name);
+
+
+            Assert.ThrowsAsync<ArgumentException>(async () => await productsService.DecreaseQuantity(testProduct.Id, 65));
         }
 
     }
