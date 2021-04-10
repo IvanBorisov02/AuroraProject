@@ -80,10 +80,10 @@ namespace AS.Web.Controllers
             {
                 if (!string.IsNullOrEmpty(model.SearchText))
                 {
-                    models = await this._context.Products
-                 .FullTextSearchQuery(model.SearchText)
-                 .Skip((model.Pager.CurrentPage - 1) * PageSize).Take(PageSize)
+                    models = await this._context.Products.Include(product => product.Category).Include(product => product.GenderType)
+                 .FullTextSearchQuery(model.SearchText)                 
                  .Where(product => (product.Category.Name == categoryName) && product.GenderType.Name == genderTypeName)
+                 .Skip((model.Pager.CurrentPage - 1) * PageSize).Take(PageSize)
                  .Select(product => new ProductCategorizedViewModel
                  {
                      Id = product.Id,
@@ -108,8 +108,8 @@ namespace AS.Web.Controllers
                 else
                 {
                     models = await this._context.Products
+                   .Where(product => (product.Category.Name == categoryName) && product.GenderType.Name == genderTypeName).Include(product => product.Category).Include(product => product.GenderType)
                    .Skip((model.Pager.CurrentPage - 1) * PageSize).Take(PageSize)
-                   .Where(product => (product.Category.Name == categoryName) && product.GenderType.Name == genderTypeName)
                    .Select(product => new ProductCategorizedViewModel
                    {
                        Id = product.Id,
